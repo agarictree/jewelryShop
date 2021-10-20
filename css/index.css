@@ -3,6 +3,10 @@ html {
   background-color: black;
 }
 
+body {
+  height: 100%;
+}
+
 a {
   text-decoration-line: none;
 }
@@ -134,7 +138,6 @@ header nav ul li a:hover {
 
 main {
   width: 100%;
-  height: 400px;
 }
 
 main #preroll {
@@ -177,7 +180,7 @@ main .carousel-container .arrow {
   display: block;
   position: absolute;
   top: 40%;
-  z-index: 1000;
+  z-index: 10;
   color: white;
   font-size: 70px;
   cursor: pointer;
@@ -207,4 +210,63 @@ main .carousel-container #carousel .card {
   background-color: transparent;
   border: 1px solid DarkSlateGrey;
   flex: 0 0 auto;
+}
+
+.tooltip-general {
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+  text-shadow: 2px 2px 2px silver;
+  padding: 5px;
+  background-color: WhiteSmoke;
+  color: gray;
+  border: 1px solid gray;
+  border-radius: 7px;
+  position: absolute;
+  z-index: 1000;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  background-color: #151515;
+  border-top: 5px solid darkolivegreen;
+  padding: 7px;
+}
+
+footer p {
+  color: gray;
+  font-family: 'Cormorant Infant', serif;
+}
+
+footer #container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+footer #container #copyright {
+  width: 50%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+footer #container #copyright::before {
+  content: "\00A9";
+  color: dimgray;
+  margin-right: 10px;
+}
+
+footer #icons {
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+  width: 50%;
+}
+
+footer #icons a img {
+  width: 40px;
+  height: auto;
+  margin: 10px;
 }

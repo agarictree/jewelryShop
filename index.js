@@ -5,13 +5,14 @@ import Header from "./header";
 import "./css/index.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import Router from "./router";
+import Footer from "./footer";
 
 function Index() {
     return (
         <>
         <Header />
         <Router />
-
+        <Footer />
         </>
     )
 }
