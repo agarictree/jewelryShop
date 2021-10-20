@@ -18,6 +18,7 @@ export default function Carousel() {
     function arrowLeft(e) {
         let target = e.target;
         let parent = target.closest(".carousel-container");
+        let child = parent.querySelector("#carousel");
         let childPos = child.getBoundingClientRect();
         if(childPos.left <= 0) {
             child.style.left = childPos.left + 200 + "px";
