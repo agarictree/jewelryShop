@@ -5,6 +5,12 @@ html {
 body {
     height: 100%;
 }
+#root {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    min-height: 100vh;
+}
 a {
     text-decoration-line: none;
 }
@@ -26,6 +32,7 @@ header {
     height: 150px;
     padding: 15px;
     background-color: black;
+    flex: 0 0 auto;
     #head {
         max-width: 30%;
         display: flex;
@@ -105,9 +112,11 @@ header {
     font-weight: bold;
     border: 1px solid transparent;
     color: white;
+    transition: 500ms linear;
     &:hover {
         background: transparent;
         border: 1px solid white;
+        transition: 500ms linear;
 
     }
     a {
@@ -122,6 +131,7 @@ header {
 }
 main {
     width: 100%;
+    flex: 1 0 auto;
     #preroll {
         background-image: url("../img/preroll.jpg");
         background-position: center;
@@ -202,6 +212,7 @@ main {
     z-index: 1000;
 }
 footer {
+    flex: 0 0 auto;
     width: 100%;
     height: auto;
     background-color: #151515;

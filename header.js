@@ -5,9 +5,9 @@ export default function Header() {
     return (
         <header>
         <div id="head">
-            <img src="./img/1.png" alt="head" />
+            <img src="./img/logo_100.png" alt="head" />
             <div id="head_subcontainer">
-                <img src="./img/2.png" alt="" />
+                <img src="./img/logo2_170.png" alt="" />
                 <p>Мастерская украшений</p>
             </div>
         </div>
