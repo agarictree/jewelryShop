@@ -6,8 +6,13 @@ html {
   background-color: black;
 }
 
-body {
-  height: 100%;
+#root {
+  max-width: 80%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
 a {
@@ -31,9 +36,10 @@ header {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  height: 150px;
-  padding: 15px;
+  justify-content: space-between;
+  height: auto;
   background-color: black;
+  flex: 0 0 auto;
 }
 
 header #head {
@@ -47,12 +53,13 @@ header #head img {
   max-width: 20%;
   height: auto;
   margin-left: 10px;
-  align-self: flex-start;
+  align-self: center;
 }
 
 header #head #head_subcontainer {
   display: block;
   max-width: 80%;
+  max-height: 100%;
   padding: 0 15px;
 }
 
@@ -66,9 +73,10 @@ header #head #head_subcontainer img {
 header #head #head_subcontainer p {
   font-family: 'Cormorant Infant', serif;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 1.2rem;
   color: olive;
   text-align: center;
+  margin: 0;
 }
 
 header nav {
@@ -78,7 +86,9 @@ header nav {
 }
 
 header nav ul {
-  display: block;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
   max-width: 100%;
   margin: 0;
   padding: 10px;
@@ -87,16 +97,17 @@ header nav ul {
 header nav ul li {
   width: 25%;
   list-style: none;
-  display: inline-block;
+  display: block;
 }
 
 header nav ul li a {
   width: 100%;
+  height: 100%;
   padding: 30px;
   display: block;
   color: darkolivegreen;
   border-top: 5px solid transparent;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-family: 'Neucha', cursive;
   text-decoration: none;
   box-sizing: border-box;
@@ -122,11 +133,13 @@ header nav ul li a:hover {
   font-weight: bold;
   border: 1px solid transparent;
   color: white;
+  transition: 500ms linear;
 }
 
 #toShop:hover {
   background: transparent;
   border: 1px solid white;
+  transition: 500ms linear;
 }
 
 #toShop a {
@@ -141,10 +154,11 @@ header nav ul li a:hover {
 
 main {
   width: 100%;
+  flex: 1 0 auto;
 }
 
 main #preroll {
-  background-image: url(../bc2e185d5fe88d0cf937.jpg);
+  background-image: url(../7edd0cb6a2dc2eea0565.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -230,6 +244,7 @@ main .carousel-container #carousel .card {
 }
 
 footer {
+  flex: 0 0 auto;
   width: 100%;
   height: auto;
   background-color: #151515;
