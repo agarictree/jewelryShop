@@ -1,6 +1,264 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+@media screen and (max-width: 1000px) {
+  header {
+    padding: 5px;
+  }
+}
+
+header .header_container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+header .header_container img {
+  align-self: center;
+  max-width: 150px;
+}
+
+@media screen and (max-width: 1000px) {
+  header .header_container {
+    flex-flow: column;
+  }
+  header .header_container .logo {
+    max-width: 70px;
+  }
+  header .header_container .logo_text {
+    max-width: 100px;
+  }
+}
+
+nav {
+  display: block;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  display: block;
+}
+
+nav ul li a {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  display: block;
+  color: darkolivegreen;
+  border-top: 5px solid transparent;
+  font-size: 1.1rem;
+  font-family: 'Neucha', cursive;
+  font-weight: 700;
+  line-height: 1.5em;
+  text-decoration: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+nav ul li a:hover {
+  border-top: 5px solid darkolivegreen;
+  cursor: pointer;
+  color: darkolivegreen;
+}
+
+@media screen and (max-width: 1000px) {
+  nav ul li a {
+    font-size: 1rem;
+    padding: 20px;
+  }
+}
+
+.carousel-container {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  height: auto;
+  position: relative;
+}
+
+.carousel-container .arrow {
+  display: block;
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.carousel-container .arrow img {
+  width: 70px;
+}
+
+.carousel-container .arrowLeft {
+  left: 10px;
+}
+
+.carousel-container .arrowRight {
+  right: 10px;
+}
+
+.carousel-container #carousel {
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: black;
+  position: relative;
+  bottom: 0;
+  transition: 500ms linear;
+}
+
+.carousel-container #carousel .card {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  padding: 10px;
+  max-width: 20%;
+  margin: 0;
+  margin-right: 10px;
+  background-color: transparent;
+  border: 1px solid DarkSlateGrey;
+  flex: 0 0 auto;
+}
+
+.carousel-container #carousel .card:last-of-type {
+  margin: 0;
+}
+
+.carousel-container #carousel .card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card_btn {
+  width: 100%;
+  font-weight: bold;
+  color: white;
+}
+
+.preroll {
+  background-image: url("../img/preroll.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.preroll .preroll_text {
+  max-width: 50%;
+  padding: 20px;
+  align-self: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 10px;
+}
+
+.preroll .preroll_text p {
+  display: block;
+  width: 100%;
+  font-size: 1.9rem;
+  line-height: 1.5em;
+  text-align: center;
+  color: #EBEBEB;
+  font-family: 'Cormorant Infant', serif;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .preroll .preroll_text p {
+    font-size: 1.3rem;
+  }
+}
+
+.preroll .preroll_text .head_btn {
+  padding: 10px 30px;
+}
+
+.preroll .preroll_text .head_btn .head_btn_span {
+  display: inline-flex;
+}
+
+.preroll .preroll_text .head_btn img {
+  margin-left: 5px;
+  display: inline;
+}
+
+main {
+  width: 100%;
+  flex: 1 0 auto;
+  margin-bottom: 5px;
+}
+
+footer {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  border-top: 5px solid darkolivegreen;
+  color: gray;
+  font-weight: 500;
+}
+
+footer p {
+  font-family: 'Cormorant Infant', serif;
+  align-self: center;
+  margin: 0;
+}
+
+footer .footer_container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+footer .footer_container .footer_copyright {
+  text-align: right;
+  padding-right: 10px;
+}
+
+footer .footer_container .footer_copyright::before {
+  content: "\00A9";
+  color: dimgray;
+  margin-right: 10px;
+}
+
+footer .footer_container .footer_icons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+footer .footer_container .footer_icons a img {
+  max-width: 40px;
+  height: auto;
+  margin: 10px;
+}
+
 html {
   max-width: 100%;
-  background-color: black;
+  background-color: #0E0E0E;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 #root {
@@ -18,270 +276,80 @@ a {
 
 h2 {
   font-family: 'Viaoda Libre', cursive;
-  color: white;
   text-align: center;
   margin-top: 15px;
 }
 
-h5 {
+h2 .h2-text {
+  color: #EBEBEB;
   text-align: center;
-  color: white;
+  line-height: 1.5rem;
+  letter-spacing: 0.15rem;
+  position: relative;
+}
+
+h2 .h2-text::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 2px);
+  transform: translate(-100%, 100%);
+  left: -10px;
+  z-index: 100;
+  width: 100px;
+  height: 2px;
+  background-color: #EBEBEB;
+}
+
+h2 .h2-text::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% + 2px);
+  transform: translate(100%, -100%);
+  right: -10px;
+  z-index: 100;
+  width: 100px;
+  height: 2px;
+  background-color: #EBEBEB;
+}
+
+h4 {
+  text-align: center;
+  color: #EBEBEB;
   font-family: 'Viaoda Libre', cursive;
 }
 
-header {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  height: auto;
-  background-color: black;
-  flex: 0 0 auto;
-}
-
-header #head {
-  max-width: 30%;
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-header #head img {
-  display: block;
-  max-width: 20%;
-  height: auto;
-  margin-left: 10px;
-  align-self: center;
-}
-
-header #head #head_subcontainer {
-  display: block;
-  max-width: 80%;
-  max-height: 100%;
-  padding: 0 15px;
-}
-
-header #head #head_subcontainer img {
-  display: block;
-  max-width: 100%;
-  max-height: 50%;
-  margin: 0 auto;
-}
-
-header #head #head_subcontainer p {
-  font-family: 'Cormorant Infant', serif;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: olive;
-  text-align: center;
-  margin: 0;
-}
-
-header nav {
-  display: block;
-  width: 65%;
-  box-sizing: border-box;
-}
-
-header nav ul {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  max-width: 100%;
-  margin: 0;
-  padding: 10px;
-}
-
-header nav ul li {
-  width: 25%;
-  list-style: none;
-  display: block;
-}
-
-header nav ul li a {
-  width: 100%;
-  height: 100%;
-  padding: 30px;
-  display: block;
-  color: darkolivegreen;
-  border-top: 5px solid transparent;
-  font-size: 1.1rem;
-  font-family: 'Neucha', cursive;
-  text-decoration: none;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-header nav ul li a:hover {
-  border-top: 5px solid darkolivegreen;
-  cursor: pointer;
-  color: darkolivegreen;
-}
-
-#toShop {
+button {
   display: block;
   margin: 0 auto;
-  background: linear-gradient(90deg, midnightblue, darkslateblue);
-  border: none;
   padding: 10px;
-  max-width: 300px;
   border-radius: 7px;
-  font-family: 'Cormorant Infant', serif;
-  font-size: 20px;
-  font-weight: bold;
   border: 1px solid transparent;
-  color: white;
   transition: 500ms linear;
+  background: linear-gradient(90deg, midnightblue, #2E2E7D);
+  cursor: pointer;
 }
 
-#toShop:hover {
-  background: transparent;
-  border: 1px solid white;
-  transition: 500ms linear;
-}
-
-#toShop a {
-  color: white;
+button a {
+  font-family: 'Cormorant Infant', serif;
+  color: #EBEBEB;
   text-decoration: none;
+  font-size: 1.25rem;
+}
+
+button:hover {
+  background: transparent;
+  border: 1px solid #EBEBEB;
+  transition: 500ms linear;
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 2.5rem;
 }
 
 .activeLink {
   border-top: 5px solid darkolivegreen;
   background-color: #151515;
-}
-
-main {
-  width: 100%;
-  flex: 1 0 auto;
-}
-
-main #preroll {
-  background-image: url("../img/preroll.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-main #preroll #text {
-  width: 50%;
-  padding: 20px;
-  align-self: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  margin: 10px;
-}
-
-main #preroll #text p {
-  display: block;
-  width: 100%;
-  font-size: 27px;
-  text-align: center;
-  color: white;
-  font-family: 'Cormorant Infant', serif;
-}
-
-main .carousel-container {
-  display: block;
-  max-width: 100%;
-  overflow: hidden;
-  height: auto;
-  padding: 10px;
-  position: relative;
-}
-
-main .carousel-container .arrow {
-  display: block;
-  position: absolute;
-  top: 40%;
-  z-index: 10;
-  color: white;
-  font-size: 70px;
-  cursor: pointer;
-}
-
-main .carousel-container .arrowLeft {
-  left: 10px;
-}
-
-main .carousel-container .arrowRight {
-  right: 10px;
-}
-
-main .carousel-container #carousel {
-  height: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  background-color: black;
-  position: relative;
-  bottom: 0;
-  transition: 500ms linear;
-}
-
-main .carousel-container #carousel .card {
-  max-width: 20%;
-  margin: 0 10px;
-  background-color: transparent;
-  border: 1px solid DarkSlateGrey;
-  flex: 0 0 auto;
-}
-
-.tooltip-general {
-  text-align: center;
-  margin: 0;
-  font-size: 14px;
-  text-shadow: 2px 2px 2px silver;
-  padding: 5px;
-  background-color: WhiteSmoke;
-  color: gray;
-  border: 1px solid gray;
-  border-radius: 7px;
-  position: absolute;
-  z-index: 1000;
-}
-
-footer {
-  flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  background-color: #151515;
-  border-top: 5px solid darkolivegreen;
-  padding: 7px;
-}
-
-footer p {
-  color: gray;
-  font-family: 'Cormorant Infant', serif;
-}
-
-footer #container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  width: 100%;
-}
-
-footer #container #copyright {
-  width: 50%;
-  text-align: right;
-  padding-right: 10px;
-}
-
-footer #container #copyright::before {
-  content: "\00A9";
-  color: dimgray;
-  margin-right: 10px;
-}
-
-footer #icons {
-  display: flex;
-  flex-flow: row nowrap;
-  position: relative;
-  width: 50%;
-}
-
-footer #icons a img {
-  width: 40px;
-  height: auto;
-  margin: 10px;
 }

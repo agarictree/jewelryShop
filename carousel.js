@@ -47,10 +47,10 @@ let images = [
 function createBlock(img, srcSet, text, sizes) {
     return (
         <div className="card">
-            <img src={img} alt="изделие" className="card-img-top p-2" srcSet={srcSet} sizes={sizes}/>
-                <div className="card-body d-flex flex-column justify-content-between p-2">
-                    <h5 className="card-title m-2">{text}</h5>
-                        <button className="align-self-end" id="toShop"><Link to="/shop">Посмотреть и купить</Link></button>
+            <img src={img} alt="изделие" srcSet={srcSet} sizes={sizes}/>
+                <div>
+                    <h4 className="m-2">{text}</h4>
+                        <button className="card_btn"><Link to="/shop">Подробнее</Link></button>
                 </div>
         </div>
     )
@@ -81,9 +81,11 @@ export default function Carousel() {
     }
     return (
         <section className="carousel-container">
-        <h2>Популярные позиции</h2>
+        <h2>
+           <span className="h2-text">Популярные позиции</span>
+           </h2>
         <div className="arrow arrowLeft" onClick={arrowLeft}>
-                <i className="bi bi-chevron-left"></i>
+                <img src="./img/svg/chevron-left.svg" alt="arrow left" />
             </div>
         <section id="carousel">
             {
@@ -93,7 +95,7 @@ export default function Carousel() {
             }
         </section>
         <div className="arrow arrowRight" onClick={arrowRight}>
-                <i className="bi bi-chevron-right"></i>
+                <img src="./img/svg/chevron-right.svg" alt="arrow right" />
             </div>
         </section>
     )

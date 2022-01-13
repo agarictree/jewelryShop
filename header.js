@@ -4,12 +4,9 @@ import { Link, NavLink } from "react-router-dom";
 export default function Header() {
     return (
         <header>
-        <div id="head">
-            <img src="./img/logo_100.png" alt="head" />
-            <div id="head_subcontainer">
-                <img src="./img/logo2_170.png" alt="" />
-                <p>Мастерская украшений</p>
-            </div>
+        <div className="header_container">
+            <img src="./img/logo_100.png" alt="head" className="logo"/>
+                <img src="./img/logo2_170.png" alt="head" className="logo_text" />
         </div>
         <nav>
             <ul>

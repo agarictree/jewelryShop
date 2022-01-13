@@ -3,10 +3,10 @@ import React from "react";
 export default function Footer() {
     return (
         <footer>
+            <section className="footer_container">
+            <div className="footer_container_social">
             <p>Мы в социальных сетях</p>
-            <div id="container">
-            <div id="icons">
-                <div className="tooltip-general" hidden></div>
+            <div className="footer_icons">
                 <a href="https://www.instagram.com/yulekottur/" target="_blank" id="instagram" title="Instagram">
                     <img src="./img/ig_40.png" alt="instagram logo" />
                 </a>
@@ -17,10 +17,11 @@ export default function Footer() {
                     <img src="./img/lm_40.png" alt="livemaster logo" />
                 </a>
             </div>
-            <p id="copyright">
-                Все права защищены
-            </p>
             </div>
+            <p className="footer_copyright">
+                2022 Все права защищены
+            </p>
+            </section>
         </footer>
     )
 }
