@@ -1,0 +1,16 @@
+.shop_container {
+    width: 100%;
+    color: white;
+    aside {
+        max-width: 20%;
+    }
+    .input {
+        display: flex;
+        justify-content: center;
+        padding: 7px;
+        border: 1px solid darkolivegreen;
+        margin-bottom: 10px;
+        text-align: center;
+        background-color: darkolivegreen;
+    }
+}

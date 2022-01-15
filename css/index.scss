@@ -3,6 +3,8 @@
 @import "preroll.scss";
 @import "main.scss";
 @import "footer.scss";
+@import "recomends.scss";
+@import "shop.scss";
 
 html {
     max-width: 100%;
@@ -19,10 +21,18 @@ body {
     flex-flow: column nowrap;
     justify-content: space-between;
     min-height: 100vh;
+    padding: 0 10px;
     margin: 0 auto;
+    @media screen and (max-width: 1000px) {
+        max-width: 100%;
+    }
 }
 a {
     text-decoration-line: none;
+}
+h1 {
+    color: #EBEBEB;
+    text-align: center;
 }
 h2 {
     font-family: 'Viaoda Libre', cursive;

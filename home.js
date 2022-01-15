@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "./carousel";
+import Recommedations from "./recomendations";
 import Section from "./section";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
         <main>
             <Section />
             <Carousel />
+            <Recommedations />
         </main>
     )
 }

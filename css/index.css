@@ -132,7 +132,7 @@ nav ul li a:hover {
   margin: 0;
   margin-right: 10px;
   background-color: transparent;
-  border: 1px solid DarkSlateGrey;
+  border: 1px solid darkolivegreen;
   flex: 0 0 auto;
 }
 
@@ -251,6 +251,96 @@ footer .footer_container .footer_icons a img {
   margin: 10px;
 }
 
+.recommends_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  .recommends_container {
+    flex-flow: row wrap;
+  }
+}
+
+.recommends_container .recommends_block {
+  width: 25%;
+  padding: 0 10px;
+  color: white;
+  padding-top: 15px;
+  box-sizing: border-box;
+  margin-right: 10px;
+  border: 1px solid darkolivegreen;
+  display: flex;
+  flex-flow: column;
+}
+
+.recommends_container .recommends_block:last-of-type {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .recommends_container .recommends_block:nth-of-type(1n) {
+    margin-right: 7px;
+    margin-bottom: 7px;
+    width: calc(50% - 7px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .recommends_container .recommends_block:nth-of-type(2n) {
+    margin-right: 0;
+    margin-bottom: 7px;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .recommends_container .recommends_block {
+    border: 1px solid darkolivegreen;
+  }
+}
+
+.recommends_container .recommends_block img {
+  display: block;
+  margin: 0 auto;
+  width: 40px;
+  height: auto;
+}
+
+.recommends_container .recommends_block h4 {
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 1.1rem;
+}
+
+.recommends_container .recommends_block p {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.shop_container {
+  width: 100%;
+  color: white;
+}
+
+.shop_container aside {
+  max-width: 20%;
+}
+
+.shop_container .input {
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+  border: 1px solid darkolivegreen;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: darkolivegreen;
+}
+
 html {
   max-width: 100%;
   background-color: #0E0E0E;
@@ -267,11 +357,23 @@ body {
   flex-flow: column nowrap;
   justify-content: space-between;
   min-height: 100vh;
+  padding: 0 10px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 1000px) {
+  #root {
+    max-width: 100%;
+  }
 }
 
 a {
   text-decoration-line: none;
+}
+
+h1 {
+  color: #EBEBEB;
+  text-align: center;
 }
 
 h2 {
