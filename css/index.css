@@ -325,10 +325,14 @@ footer .footer_container .footer_icons a img {
 .shop_container {
   width: 100%;
   color: white;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "aside container container";
+  grid-gap: 1.5em;
 }
 
 .shop_container aside {
-  max-width: 20%;
+  grid-area: aside;
 }
 
 .shop_container .input {
@@ -339,6 +343,20 @@ footer .footer_container .footer_icons a img {
   margin-bottom: 10px;
   text-align: center;
   background-color: darkolivegreen;
+}
+
+.shop_vitrina {
+  grid-area: container;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.shop_vitrina .card {
+  max-width: 50%;
+}
+
+.shop_vitrina .card img {
+  max-width: 100%;
 }
 
 html {

@@ -1,8 +1,13 @@
 .shop_container {
     width: 100%;
     color: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "aside container container";
+    grid-gap: 1.5em;
     aside {
-        max-width: 20%;
+        // max-width: 20%;
+        grid-area: aside;
     }
     .input {
         display: flex;
@@ -12,5 +17,16 @@
         margin-bottom: 10px;
         text-align: center;
         background-color: darkolivegreen;
+    }
+}
+.shop_vitrina {
+    grid-area: container;
+    display: flex;
+    flex-flow: row wrap;
+    .card {
+        max-width: 50%;
+        img {
+            max-width: 100%;
+        }
     }
 }

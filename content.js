@@ -24,7 +24,7 @@ let content = [
         text: "Колье 'Медуза Горгона'",
         description: "",
         materials: ["tin"],
-        inStock: false,
+        inStock: true,
         sizes: "(min-width: 1000px) 1000w, (max-width: 1000px) 500w, (max-width: 500px) 200w"
     }, {
         img: "img/pxgBKof1kiE.jpg",
@@ -69,7 +69,7 @@ let content = [
         text: "Колье 'Фея' из сплава 'пьютер'",
         description: "",
         materials: ["tin"],
-        inStock: false,
+        inStock: true,
         sizes: "(min-width: 1000px) 1000w, (max-width: 1000px) 500w, (max-width: 500px) 200w"
     }
 ];
