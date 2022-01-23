@@ -4,6 +4,7 @@ import Home from "./home";
 import Shop from "./shop";
 import About from "./about";
 import Shipping from "./shipping";
+import ShopRouter from "./shopRouter";
 
 export default function Router(props) {
     return (
@@ -12,6 +13,7 @@ export default function Router(props) {
             <Route path="/shop" element={<Shop store={props.store}/>}/>
             <Route path="/about" element={<About />}/>
             <Route path="/shipping" element={<Shipping />}/>
+            <Route path={"/shop/*"} element={<ShopRouter/>}/>
         </Routes>
     )
 }

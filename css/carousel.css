@@ -62,4 +62,11 @@
   width: 100%;
   font-weight: bold;
   color: white;
+  display: block;
+}
+
+.card_btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

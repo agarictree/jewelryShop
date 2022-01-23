@@ -48,7 +48,7 @@ export default function Shop(props) {
                 <label htmlFor="tin">Сплав "пьютер"</label>
                 <input type="radio" id="tin" name="materials" value="tin" onChange={chooseItems}/><br />
                 </div>
-
+                <h4>В наличии</h4>
                 <div className="input">
                 <label htmlFor="inStock">В наличии</label>
                 <input type="checkbox" name="inStock" id="inStock" value="inStock" onChange={chooseItems}/><br />

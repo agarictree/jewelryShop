@@ -149,6 +149,13 @@ nav ul li a:hover {
   width: 100%;
   font-weight: bold;
   color: white;
+  display: block;
+}
+
+.card_btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .preroll {
@@ -333,6 +340,8 @@ footer .footer_container .footer_icons a img {
 
 .shop_container aside {
   grid-area: aside;
+  padding: 0;
+  padding-left: 1.5em;
 }
 
 .shop_container .input {
@@ -349,10 +358,14 @@ footer .footer_container .footer_icons a img {
   grid-area: container;
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .shop_vitrina .card {
-  max-width: 50%;
+  max-width: 30%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid darkolivegreen;
 }
 
 .shop_vitrina .card img {
@@ -370,7 +383,7 @@ body {
 }
 
 #root {
-  max-width: 80%;
+  max-width: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -432,6 +445,10 @@ h2 .h2-text::after {
   width: 100px;
   height: 2px;
   background-color: #EBEBEB;
+}
+
+h3 {
+  color: #EBEBEB;
 }
 
 h4 {

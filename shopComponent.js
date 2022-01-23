@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function ShopComponent(props) {
     let store = props.store;
@@ -6,17 +7,29 @@ export default function ShopComponent(props) {
     return (
         <>
             {store.show ? store.show.map(item => {
+                let path = item.images.split("/");
+                let url = path[path.length - 1];
+
                     return (
                         <div className="card">
                             <img src={item.img} alt="item" />
                             <h4>{item.text}</h4>
+                            <button className="card_btn">
+                                <Link to={`/shop/${url}`}>Подробнее</Link>
+                            </button>
                         </div>
                     )
             }) : store.map(item => {
+                let path = item.images.split("/");
+                let url = path[path.length - 1];
+
                 return (
                     <div className="card">
                         <img src={item.img} alt="item" />
                         <h4>{item.text}</h4>
+                        <button className="card_btn">
+                            <Link to={`/shop/${url}`}>Подробнее</Link>
+                        </button>
                     </div>
                 )
         })}

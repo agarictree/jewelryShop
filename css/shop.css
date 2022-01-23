@@ -9,6 +9,8 @@
 
 .shop_container aside {
   grid-area: aside;
+  padding: 0;
+  padding-left: 1.5em;
 }
 
 .shop_container .input {
@@ -25,10 +27,14 @@
   grid-area: container;
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .shop_vitrina .card {
-  max-width: 50%;
+  max-width: 30%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid darkolivegreen;
 }
 
 .shop_vitrina .card img {

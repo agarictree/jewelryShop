@@ -8,6 +8,8 @@
     aside {
         // max-width: 20%;
         grid-area: aside;
+        padding: 0;
+        padding-left: 1.5em;
     }
     .input {
         display: flex;
@@ -23,8 +25,12 @@
     grid-area: container;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     .card {
-        max-width: 50%;
+        max-width: 30%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid darkolivegreen;
         img {
             max-width: 100%;
         }
