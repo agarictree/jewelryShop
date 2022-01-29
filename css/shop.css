@@ -7,6 +7,14 @@
   grid-gap: 1.5em;
 }
 
+@media screen and (max-width: 1000px) {
+  .shop_container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "aside" "container";
+    grid-template-rows: 1fr auto;
+  }
+}
+
 .shop_container aside {
   grid-area: aside;
   padding: 0;
@@ -17,10 +25,10 @@
   display: flex;
   justify-content: center;
   padding: 7px;
-  border: 1px solid darkolivegreen;
+  border: 1px solid DarkSlateBlue;
   margin-bottom: 10px;
   text-align: center;
-  background-color: darkolivegreen;
+  background-color: DarkSlateBlue;
 }
 
 .shop_vitrina {
@@ -39,4 +47,86 @@
 
 .shop_vitrina .card img {
   max-width: 100%;
+}
+
+.shop_item_page {
+  max-width: 100%;
+}
+
+.shop_item_page .item_page {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page {
+    flex-flow: column;
+  }
+}
+
+.shop_item_page .item_page_info {
+  width: 50%;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page_info {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.shop_item_page .item_page_info h3 {
+  text-align: center;
+}
+
+.shop_item_page .item_page_info p {
+  color: #ebebeb;
+  line-height: 1.5em;
+  padding: 0 15px;
+}
+
+.shop_item_page .item_page_gallery {
+  width: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page_gallery {
+    width: 100%;
+  }
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_general {
+  width: 100%;
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_general img {
+  max-width: 100%;
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_links img {
+  cursor: pointer;
+  border: 1px solid olive;
+  padding: 5px;
+  width: 20%;
+  flex: 1 0 20%;
+}
+
+table {
+  color: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td, table tr {
+  border: 1px solid white;
+  padding: 7px;
 }

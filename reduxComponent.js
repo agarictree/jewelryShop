@@ -3,7 +3,7 @@ import Router from "./router";
 import Footer from "./footer";
 import Header from "./header";
 import { connect } from "react-redux";
-import { getAllItems, sortByMaterialsCreator, sortByStoreCreator } from "./actions";
+import { getAllItems, sortByMaterialsCreator, sortByStoreCreator, sortByTypeCreator } from "./actions";
 
 function ReduxComponent(props) {
     return (
@@ -16,6 +16,7 @@ function ReduxComponent(props) {
 }
 
 let mapStateToProps = store => {
+
     return {store};
 }
 let mapDispatchToProps = (dispatch) => {
@@ -26,8 +27,11 @@ let mapDispatchToProps = (dispatch) => {
         sortByStock: () => {
             return dispatch(sortByStoreCreator());
         },
+        sortByType: (type) => {
+            return dispatch(sortByTypeCreator(type));
+        },
         getAllItems: () => {
-            return getAllItems();
+            return dispatch(getAllItems());
         }
     }
 }

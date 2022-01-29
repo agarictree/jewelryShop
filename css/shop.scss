@@ -5,6 +5,13 @@
     grid-template-columns: 1fr 2fr;
     grid-template-areas: "aside container container";
     grid-gap: 1.5em;
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+        grid-template-areas: "aside"
+                            "container";
+        grid-template-rows: 1fr auto;
+
+    }
     aside {
         // max-width: 20%;
         grid-area: aside;
@@ -15,10 +22,10 @@
         display: flex;
         justify-content: center;
         padding: 7px;
-        border: 1px solid darkolivegreen;
+        border: 1px solid DarkSlateBlue;
         margin-bottom: 10px;
         text-align: center;
-        background-color: darkolivegreen;
+        background-color: DarkSlateBlue;
     }
 }
 .shop_vitrina {
@@ -35,4 +42,67 @@
             max-width: 100%;
         }
     }
+}
+.shop_item_page {
+    max-width: 100%;
+    .item_page {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        @media screen and (max-width: 1000px) {
+            flex-flow: column;
+        }
+    }
+    .item_page_info {
+        width: 50%;
+        margin-left: 10px;
+        @media screen and (max-width: 1000px) {
+            width: 100%;
+            margin-left: 0;
+        }
+        h3 {
+            text-align: center;
+        }
+        p {
+            color: #ebebeb;
+            line-height: 1.5em;
+            padding: 0 15px;
+        }
+    }
+    .item_page_gallery {
+        width: 50%;
+        @media screen and (max-width: 1000px) {
+            width: 100%;
+        }
+        .item_page_gallery_general {
+            width: 100%;
+            img {
+                max-width: 100%;
+            }
+        }
+        .item_page_gallery_links {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            width: 100%;
+            img {
+                cursor: pointer;
+                border: 1px solid olive;
+                padding: 5px;
+                width: 20%;
+                flex: 1 0 20%;
+            }
+        }
+    }
+}
+
+table {
+    color: white;
+    border-collapse: collapse;
+    width: 100%;
+    th, td, tr {
+        border: 1px solid white;
+        padding: 7px;
+    }
+    
 }

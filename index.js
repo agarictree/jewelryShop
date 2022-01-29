@@ -6,8 +6,9 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./reducer";
 import { Connected } from "./reduxComponent";
+import content from "./content";
 
-let store = createStore(reducer);
+let store = createStore(reducer, {show: content});
 
 function Index() {
     return (

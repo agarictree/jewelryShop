@@ -86,22 +86,40 @@ button {
     border-radius: 7px;
     border: 1px solid transparent;
     transition: 500ms linear;
-    background: linear-gradient(90deg, midnightblue, #2E2E7D);
+    background-color: teal;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
     a {
         font-family: 'Cormorant Infant', serif;
         color: #EBEBEB;
         text-decoration: none;
         font-size: 1.25rem;
+        width: 100%;
+        z-index: 10;
     }
     &:hover {
-        background: transparent;
-        border: 1px solid #EBEBEB;
-        transition: 500ms linear;
+        // background: transparent;
+        // border: 1px solid #EBEBEB;
+        transition: 1000ms linear;
+        &::before {
+            content: "";
+            width: 15px;
+            height: 150%;
+            background-color: rgba($color: #ebebeb, $alpha: 0.7);
+            position: absolute;
+            top: -20%;
+            left: -30px;
+            display: block;
+            transform: rotate(-10deg);
+            animation: buttonAnimation 1000ms linear;
+            box-shadow: 0 0 10px 2px rgba($color: #ebebeb, $alpha: 0.7), 0 0 10px 2px rgba($color: #ebebeb, $alpha: 0.7);
+            z-index: 0;
+        }
     }
 }
 p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     line-height: 2.5rem;
 }
 
@@ -111,3 +129,15 @@ p {
 }
 
 
+@keyframes buttonAnimation {
+    0% {
+        left: -30px;
+        background-color: rgba($color: #ebebeb, $alpha: 0.7);
+        box-shadow: 0 0 10px 2px rgba($color: #ebebeb, $alpha: 0.7), 0 0 10px 2px rgba($color: #ebebeb, $alpha: 0.7);
+    }
+    100% {
+        left: 100%;
+        background-color: rgba($color: #ebebeb, $alpha: 0.3);
+        box-shadow: 0 0 10px 2px rgba($color: #ebebeb, $alpha: 0.3), 0 0 10px 2px rgba($color: #ebebeb, $alpha: 0.3);
+    }
+}

@@ -338,6 +338,14 @@ footer .footer_container .footer_icons a img {
   grid-gap: 1.5em;
 }
 
+@media screen and (max-width: 1000px) {
+  .shop_container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "aside" "container";
+    grid-template-rows: 1fr auto;
+  }
+}
+
 .shop_container aside {
   grid-area: aside;
   padding: 0;
@@ -348,10 +356,10 @@ footer .footer_container .footer_icons a img {
   display: flex;
   justify-content: center;
   padding: 7px;
-  border: 1px solid darkolivegreen;
+  border: 1px solid DarkSlateBlue;
   margin-bottom: 10px;
   text-align: center;
-  background-color: darkolivegreen;
+  background-color: DarkSlateBlue;
 }
 
 .shop_vitrina {
@@ -370,6 +378,88 @@ footer .footer_container .footer_icons a img {
 
 .shop_vitrina .card img {
   max-width: 100%;
+}
+
+.shop_item_page {
+  max-width: 100%;
+}
+
+.shop_item_page .item_page {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page {
+    flex-flow: column;
+  }
+}
+
+.shop_item_page .item_page_info {
+  width: 50%;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page_info {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.shop_item_page .item_page_info h3 {
+  text-align: center;
+}
+
+.shop_item_page .item_page_info p {
+  color: #ebebeb;
+  line-height: 1.5em;
+  padding: 0 15px;
+}
+
+.shop_item_page .item_page_gallery {
+  width: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page_gallery {
+    width: 100%;
+  }
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_general {
+  width: 100%;
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_general img {
+  max-width: 100%;
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_links img {
+  cursor: pointer;
+  border: 1px solid olive;
+  padding: 5px;
+  width: 20%;
+  flex: 1 0 20%;
+}
+
+table {
+  color: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td, table tr {
+  border: 1px solid white;
+  padding: 7px;
 }
 
 html {
@@ -464,8 +554,10 @@ button {
   border-radius: 7px;
   border: 1px solid transparent;
   transition: 500ms linear;
-  background: linear-gradient(90deg, midnightblue, #2E2E7D);
+  background-color: teal;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 button a {
@@ -473,20 +565,48 @@ button a {
   color: #EBEBEB;
   text-decoration: none;
   font-size: 1.25rem;
+  width: 100%;
+  z-index: 10;
 }
 
 button:hover {
-  background: transparent;
-  border: 1px solid #EBEBEB;
-  transition: 500ms linear;
+  transition: 1000ms linear;
+}
+
+button:hover::before {
+  content: "";
+  width: 15px;
+  height: 150%;
+  background-color: rgba(235, 235, 235, 0.7);
+  position: absolute;
+  top: -20%;
+  left: -30px;
+  display: block;
+  transform: rotate(-10deg);
+  animation: buttonAnimation 1000ms linear;
+  box-shadow: 0 0 10px 2px rgba(235, 235, 235, 0.7), 0 0 10px 2px rgba(235, 235, 235, 0.7);
+  z-index: 0;
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 2.5rem;
 }
 
 .activeLink {
   border-top: 5px solid darkolivegreen;
   background-color: #151515;
+}
+
+@keyframes buttonAnimation {
+  0% {
+    left: -30px;
+    background-color: rgba(235, 235, 235, 0.7);
+    box-shadow: 0 0 10px 2px rgba(235, 235, 235, 0.7), 0 0 10px 2px rgba(235, 235, 235, 0.7);
+  }
+  100% {
+    left: 100%;
+    background-color: rgba(235, 235, 235, 0.3);
+    box-shadow: 0 0 10px 2px rgba(235, 235, 235, 0.3), 0 0 10px 2px rgba(235, 235, 235, 0.3);
+  }
 }

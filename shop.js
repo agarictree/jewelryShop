@@ -4,14 +4,10 @@ import ShopComponent from "./shopComponent";
 
 export default function Shop(props) {
     let store = props.store;
-    // let [state, getState] = useState(store);
+    console.log(props);
 
     function chooseItems(e) {
         let prop = e.target.value;
-        if(prop == "all") {
-            // getState(store);
-            store.getAllItems();
-        }
         if(prop == "clay") {
             // getState(store);
             store.sortByMaterials("clay");
@@ -23,8 +19,17 @@ export default function Shop(props) {
         if(prop == "inStock") {
             store.sortByStock();
         }
+        console.log(store);
     }
 
+    function chooseByType(e) {
+        let prop = e.target.value;
+        store.sortByType(prop);
+    }
+    function getAll(e) {
+        e.preventDefault();
+        store.getAllItems();
+    }
     return (
         <main>
         <h1>Витрина</h1>
@@ -33,11 +38,40 @@ export default function Shop(props) {
             <aside>
             <h4>Сортировать по:</h4>
                 <form action="/">
-                <h4>Материал</h4>
+                <button onClick={getAll}>Показать все</button>
+                <h4>Тип украшения</h4>
+
                 <div className="input">
-                <label htmlFor="all">Всё</label>
-                <input type="radio" id="all" name="materials" value="all" onChange={chooseItems}/><br />
+                <label htmlFor="necklace">Колье</label>
+                <input type="radio" id="necklace" name="type" value="Колье" onChange={chooseByType}/><br />
                 </div>
+
+                <div className="input">
+                <label htmlFor="brooch">Брошь</label>
+                <input type="radio" id="brooch" name="type" value="Брошь" onChange={chooseByType}/><br />
+                </div>
+
+                <div className="input">
+                <label htmlFor="pedant">Подвеска</label>
+                <input type="radio" id="pedant" name="type" value="Подвеска" onChange={chooseByType}/><br />
+                </div>
+
+                <div className="input">
+                <label htmlFor="earrings">Серьги</label>
+                <input type="radio" id="earrings" name="type" value="Серьги" onChange={chooseByType}/><br />
+                </div>
+                
+                <div className="input">
+                <label htmlFor="bolo">Галстук-боло</label>
+                <input type="radio" id="bolo" name="type" value="Галстук-боло" onChange={chooseByType}/><br />
+                </div>
+
+                <div className="input">
+                <label htmlFor="ring">Кольцо</label>
+                <input type="radio" id="ring" name="type" value="Кольцо" onChange={chooseByType}/><br />
+                </div>
+                
+                <h4>Материал</h4>
 
                 <div className="input">
                 <label htmlFor="clay">Полимерная глина</label>
