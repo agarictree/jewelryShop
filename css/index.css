@@ -1,5 +1,5 @@
 header {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   height: auto;
@@ -336,20 +336,105 @@ footer .footer_container .footer_icons a img {
   grid-template-columns: 1fr 2fr;
   grid-template-areas: "aside container container";
   grid-gap: 1.5em;
+  background-color: inherit;
 }
 
 @media screen and (max-width: 1000px) {
   .shop_container {
-    grid-template-columns: 1fr;
-    grid-template-areas: "aside" "container";
-    grid-template-rows: 1fr auto;
+    display: block;
   }
+}
+
+.shop_container .openMenu {
+  display: block;
+  position: absolute;
+  margin-top: 0;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ebebeb;
+  transition: 500ms linear;
+  z-index: 30;
+  animation: openedmenu 800ms linear;
+}
+
+.shop_container .openMenuHead:first-child:after {
+  border-top-color: transparent;
+  border-bottom-color: #151515;
 }
 
 .shop_container aside {
   grid-area: aside;
   padding: 0;
   padding-left: 1.5em;
+  display: block;
+  background-color: inherit;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside {
+    padding-left: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+  }
+}
+
+.shop_container aside h4 {
+  padding: 10px 0;
+}
+
+.shop_container aside h4:first-child {
+  position: relative;
+  z-index: 60;
+  background-color: inherit;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside h4 {
+    margin: 7px 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside h4:first-child::after {
+    content: "";
+    border: 5px solid transparent;
+    border-top-color: #151515;
+    display: inline-block;
+    margin-left: 10px;
+    transition: 500ms ease;
+  }
+}
+
+.shop_container aside form {
+  transition: 500ms linear;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside form {
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    background-color: inherit;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside form .shop_container_aside_block {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside form button {
+    background-color: transparent;
+    padding: 0;
+  }
 }
 
 .shop_container .input {
@@ -360,6 +445,17 @@ footer .footer_container .footer_icons a img {
   margin-bottom: 10px;
   text-align: center;
   background-color: DarkSlateBlue;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container .input {
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 2vw;
+    margin-left: 5px;
+    flex: 1;
+  }
 }
 
 .shop_vitrina {
@@ -462,6 +558,15 @@ table th, table td, table tr {
   padding: 7px;
 }
 
+@keyframes openedmenu {
+  0% {
+    margin-top: -100%;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
 html {
   max-width: 100%;
   background-color: #0E0E0E;
@@ -478,14 +583,18 @@ body {
   flex-flow: column nowrap;
   justify-content: space-between;
   min-height: 100vh;
-  padding: 0 10px;
   margin: 0 auto;
+  background-color: inherit;
 }
 
 @media screen and (max-width: 1000px) {
   #root {
     max-width: 100%;
   }
+}
+
+main {
+  background-color: inherit;
 }
 
 a {
@@ -609,4 +718,17 @@ p {
     background-color: rgba(235, 235, 235, 0.3);
     box-shadow: 0 0 10px 2px rgba(235, 235, 235, 0.3), 0 0 10px 2px rgba(235, 235, 235, 0.3);
   }
+}
+
+.light {
+  background-color: #EBEBEB;
+  color: #151515;
+}
+
+.light p {
+  color: #151515;
+}
+
+.light h1, .light h2, .light h3, .light h4, .light h5 {
+  color: #0E0E0E;
 }

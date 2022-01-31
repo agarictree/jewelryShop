@@ -5,18 +5,87 @@
     grid-template-columns: 1fr 2fr;
     grid-template-areas: "aside container container";
     grid-gap: 1.5em;
+    background-color: inherit;
     @media screen and (max-width: 1000px) {
-        grid-template-columns: 1fr;
-        grid-template-areas: "aside"
-                            "container";
-        grid-template-rows: 1fr auto;
-
+        display: block;
     }
+    .openMenu {
+         display: block;
+         position: absolute;
+         margin-top: 0;
+         top: 100%;
+         left: 0;
+         width: 100%;
+         background-color: #ebebeb;
+         transition: 500ms linear;
+         z-index: 30;
+         animation: openedmenu 800ms linear;
+     }
+     
+     .openMenuHead:first-child:after {
+        border-top-color: transparent;
+        border-bottom-color: #151515;
+    }
+
     aside {
-        // max-width: 20%;
         grid-area: aside;
         padding: 0;
         padding-left: 1.5em;
+        display: block;
+        background-color: inherit;
+        @media screen and (max-width: 1000px) {
+            padding-left: 0;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+        h4 {
+            padding: 10px 0;
+            &:first-child {
+                position: relative;
+                z-index: 60;
+                background-color: inherit;
+            }
+            @media screen and (max-width: 1000px) {
+                margin: 7px 0;
+            }        
+            &:first-child::after {
+                @media screen and (max-width: 1000px) {
+                    content: "";
+                    border: 5px solid transparent;
+                    border-top-color: #151515;
+                    display: inline-block;
+                    margin-left: 10px;
+                    transition: 500ms ease;
+                 }
+                }
+            
+        }
+        form {
+            transition: 500ms linear;
+                @media screen and (max-width: 1000px) {
+                    position: absolute;
+                    top: -100%;
+                    width: 100%;
+                    background-color: inherit;
+                }
+            .shop_container_aside_block {
+                @media screen and (max-width: 1000px) {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: stretch;
+                }
+            }
+
+            button {
+                @media screen and (max-width: 1000px) {
+                    background-color: transparent;
+                    padding: 0;
+                }
+            }
+        }
     }
     .input {
         display: flex;
@@ -26,8 +95,18 @@
         margin-bottom: 10px;
         text-align: center;
         background-color: DarkSlateBlue;
+        vertical-align: middle;
+        @media screen and (max-width: 1000px) {
+            padding: 3px;
+            margin-bottom: 5px;
+            font-size: 2vw;
+            margin-left: 5px;
+            flex: 1;
+        }
     }
 }
+
+
 .shop_vitrina {
     grid-area: container;
     display: flex;
@@ -105,4 +184,13 @@ table {
         padding: 7px;
     }
     
+}
+
+@keyframes openedmenu {
+    0% {
+        margin-top: -100%;
+    }
+    100% {
+        margin-top: 0;
+    }
 }

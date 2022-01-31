@@ -5,20 +5,105 @@
   grid-template-columns: 1fr 2fr;
   grid-template-areas: "aside container container";
   grid-gap: 1.5em;
+  background-color: inherit;
 }
 
 @media screen and (max-width: 1000px) {
   .shop_container {
-    grid-template-columns: 1fr;
-    grid-template-areas: "aside" "container";
-    grid-template-rows: 1fr auto;
+    display: block;
   }
+}
+
+.shop_container .openMenu {
+  display: block;
+  position: absolute;
+  margin-top: 0;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ebebeb;
+  transition: 500ms linear;
+  z-index: 30;
+  animation: openedmenu 800ms linear;
+}
+
+.shop_container .openMenuHead:first-child:after {
+  border-top-color: transparent;
+  border-bottom-color: #151515;
 }
 
 .shop_container aside {
   grid-area: aside;
   padding: 0;
   padding-left: 1.5em;
+  display: block;
+  background-color: inherit;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside {
+    padding-left: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+  }
+}
+
+.shop_container aside h4 {
+  padding: 10px 0;
+}
+
+.shop_container aside h4:first-child {
+  position: relative;
+  z-index: 60;
+  background-color: inherit;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside h4 {
+    margin: 7px 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside h4:first-child::after {
+    content: "";
+    border: 5px solid transparent;
+    border-top-color: #151515;
+    display: inline-block;
+    margin-left: 10px;
+    transition: 500ms ease;
+  }
+}
+
+.shop_container aside form {
+  transition: 500ms linear;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside form {
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    background-color: inherit;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside form .shop_container_aside_block {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside form button {
+    background-color: transparent;
+    padding: 0;
+  }
 }
 
 .shop_container .input {
@@ -29,6 +114,17 @@
   margin-bottom: 10px;
   text-align: center;
   background-color: DarkSlateBlue;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container .input {
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 2vw;
+    margin-left: 5px;
+    flex: 1;
+  }
 }
 
 .shop_vitrina {
@@ -129,4 +225,13 @@ table {
 table th, table td, table tr {
   border: 1px solid white;
   padding: 7px;
+}
+
+@keyframes openedmenu {
+  0% {
+    margin-top: -100%;
+  }
+  100% {
+    margin-top: 0;
+  }
 }

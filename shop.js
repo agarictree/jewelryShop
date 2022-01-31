@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import content from "./content";
 import ShopComponent from "./shopComponent";
 
 export default function Shop(props) {
     let store = props.store;
-    console.log(props);
+    let [isMedia, setState] = useState(false);
+
+    useEffect(() => {
+        if(document.body.offsetWidth < 1000) {
+            setState(true);
+        }
+    }, []);
 
     function chooseItems(e) {
         let prop = e.target.value;
@@ -19,16 +25,39 @@ export default function Shop(props) {
         if(prop == "inStock") {
             store.sortByStock();
         }
-        console.log(store);
+
+        let menu = document.querySelector("aside > form");
+        if(!isMedia) {
+            menu.classList.remove("openMenu");
+            setTimeout(() => setState(true), 300);
+        }
     }
 
     function chooseByType(e) {
         let prop = e.target.value;
         store.sortByType(prop);
+
+        let menu = document.querySelector("aside > form");
+        if(!isMedia) {
+            menu.classList.remove("openMenu");
+            setTimeout(() => setState(true), 300);
+        }
     }
     function getAll(e) {
         e.preventDefault();
         store.getAllItems();
+
+        let menu = document.querySelector("aside > form");
+        if(!isMedia) {
+            menu.classList.remove("openMenu");
+            setTimeout(() => setState(true), 300);
+        }
+    }
+    function sortHandler(e) {
+        e.target.nextElementSibling.classList.toggle("openMenu");
+        isMedia ? setState(false) : setTimeout(() => setState(true), 300);
+        e.target.classList.toggle("openMenuHead");
+
     }
     return (
         <main>
@@ -36,11 +65,12 @@ export default function Shop(props) {
         <div className="shop_container">
             
             <aside>
-            <h4>Сортировать по:</h4>
-                <form action="/">
+            <h4 onClick={sortHandler}>Сортировать по:</h4>
+                <form action="/" hidden={isMedia}>
                 <button onClick={getAll}>Показать все</button>
                 <h4>Тип украшения</h4>
 
+                <div className="shop_container_aside_block">
                 <div className="input">
                 <label htmlFor="necklace">Колье</label>
                 <input type="radio" id="necklace" name="type" value="Колье" onChange={chooseByType}/><br />
@@ -70,9 +100,11 @@ export default function Shop(props) {
                 <label htmlFor="ring">Кольцо</label>
                 <input type="radio" id="ring" name="type" value="Кольцо" onChange={chooseByType}/><br />
                 </div>
+                </div>
                 
                 <h4>Материал</h4>
 
+                <div className="shop_container_aside_block">
                 <div className="input">
                 <label htmlFor="clay">Полимерная глина</label>
                 <input type="radio" id="clay" name="materials" value="clay" onChange={chooseItems}/><br />
@@ -82,10 +114,14 @@ export default function Shop(props) {
                 <label htmlFor="tin">Сплав "пьютер"</label>
                 <input type="radio" id="tin" name="materials" value="tin" onChange={chooseItems}/><br />
                 </div>
+                </div>
                 <h4>В наличии</h4>
+                
+                <div className="shop_container_aside_block">
                 <div className="input">
                 <label htmlFor="inStock">В наличии</label>
                 <input type="checkbox" name="inStock" id="inStock" value="inStock" onChange={chooseItems}/><br />
+                </div>
                 </div>
                 </form>
             </aside>
