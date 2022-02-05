@@ -1,6 +1,5 @@
 .shop_container {
     width: 100%;
-    color: white;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-areas: "aside container container";
@@ -124,12 +123,16 @@
 }
 .shop_item_page {
     max-width: 100%;
+    @media screen and (max-width: 1000px) {
+        padding: 0 10px 10px 10px;
+    }
     .item_page {
         width: 100%;
         display: flex;
         flex-flow: row nowrap;
         @media screen and (max-width: 1000px) {
             flex-flow: column;
+            justify-content: center;
         }
     }
     .item_page_info {
@@ -143,7 +146,7 @@
             text-align: center;
         }
         p {
-            color: #ebebeb;
+            color: inherit;
             line-height: 1.5em;
             padding: 0 15px;
         }
@@ -157,6 +160,10 @@
             width: 100%;
             img {
                 max-width: 100%;
+                @media screen and (max-width: 1000px) {
+                    display: block;
+                    margin: 0 auto;
+                }
             }
         }
         .item_page_gallery_links {
@@ -176,21 +183,42 @@
 }
 
 table {
-    color: white;
+    color: inherit;
     border-collapse: collapse;
     width: 100%;
+    tfoot {
+        text-align: center;
+    }
     th, td, tr {
         border: 1px solid white;
         padding: 7px;
     }
-    
 }
-
 @keyframes openedmenu {
     0% {
         margin-top: -100%;
     }
     100% {
         margin-top: 0;
+    }
+}
+
+.shop_addToCard {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: 10px 0;
+    button {
+        margin: 0;
+    }
+    .shop_addToCard-input {
+        align-self: center;
+        margin-right: 10px;
+        label {
+            margin-right: 7px;
+        }
+        input {
+            padding: 10px;
+        }
     }
 }

@@ -1,6 +1,5 @@
 .shop_container {
   width: 100%;
-  color: white;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-areas: "aside container container";
@@ -149,6 +148,12 @@
   max-width: 100%;
 }
 
+@media screen and (max-width: 1000px) {
+  .shop_item_page {
+    padding: 0 10px 10px 10px;
+  }
+}
+
 .shop_item_page .item_page {
   width: 100%;
   display: flex;
@@ -158,6 +163,7 @@
 @media screen and (max-width: 1000px) {
   .shop_item_page .item_page {
     flex-flow: column;
+    justify-content: center;
   }
 }
 
@@ -178,7 +184,7 @@
 }
 
 .shop_item_page .item_page_info p {
-  color: #ebebeb;
+  color: inherit;
   line-height: 1.5em;
   padding: 0 15px;
 }
@@ -201,6 +207,13 @@
   max-width: 100%;
 }
 
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page_gallery .item_page_gallery_general img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 .shop_item_page .item_page_gallery .item_page_gallery_links {
   display: flex;
   flex-flow: row wrap;
@@ -217,9 +230,13 @@
 }
 
 table {
-  color: white;
+  color: inherit;
   border-collapse: collapse;
   width: 100%;
+}
+
+table tfoot {
+  text-align: center;
 }
 
 table th, table td, table tr {
@@ -234,4 +251,28 @@ table th, table td, table tr {
   100% {
     margin-top: 0;
   }
+}
+
+.shop_addToCard {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.shop_addToCard button {
+  margin: 0;
+}
+
+.shop_addToCard .shop_addToCard-input {
+  align-self: center;
+  margin-right: 10px;
+}
+
+.shop_addToCard .shop_addToCard-input label {
+  margin-right: 7px;
+}
+
+.shop_addToCard .shop_addToCard-input input {
+  padding: 10px;
 }

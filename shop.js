@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import content from "./content";
 import ShopComponent from "./shopComponent";
 
 export default function Shop(props) {

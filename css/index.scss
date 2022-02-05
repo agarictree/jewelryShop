@@ -8,12 +8,13 @@
 
 html {
     max-width: 100%;
-    background-color: #0E0E0E;
 }
 
 body {
     margin: 0;
     padding: 0;
+    background-color: #0E0E0E;
+    color: #EBEBEB;
 }
 #root {
     max-width: 100%;
@@ -29,6 +30,12 @@ body {
 }
 main {
     background-color: inherit;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 2.5rem;
+    // color: #EBEBEB;
 }
 a {
     text-decoration-line: none;
@@ -54,7 +61,7 @@ h2 {
         top: calc(50% - 2px);
         transform: translate(-100%,100%);
         left: -10px;
-        z-index: 100;
+        z-index: 5;
         width: 100px;
         height: 2px;
         background-color: #EBEBEB;
@@ -67,7 +74,7 @@ h2 {
         top: calc(50% + 2px);
         transform: translate(100%,-100%);
         right: -10px;
-        z-index: 100;
+        z-index: 5;
         width: 100px;
         height: 2px;
         background-color: #EBEBEB;
@@ -90,6 +97,7 @@ button {
     border: 1px solid transparent;
     transition: 500ms linear;
     background-color: teal;
+    color: #EBEBEB;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -121,10 +129,6 @@ button {
         }
     }
 }
-p {
-    font-size: 1.1rem;
-    line-height: 2.5rem;
-}
 
 .activeLink {
     border-top: 5px solid darkolivegreen;
@@ -151,7 +155,15 @@ p {
     p {
         color: #151515;
     }
-    h1, h2, h3, h4, h5 {
+    h1, h2, h3, h4, h5, .h2-text {
         color: #0E0E0E;
+    }
+    table {
+        tr, td, th {
+            border: 1px solid #0E0E0E;
+        }
+    }
+    .change_theme-close--open {
+            background-image: url("../img/svg/x-circle-fill.svg");
     }
 }

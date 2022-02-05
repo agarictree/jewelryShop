@@ -30,7 +30,7 @@
   height: 100%;
   display: flex;
   flex-flow: row nowrap;
-  background-color: black;
+  background-color: inherit;
   position: relative;
   bottom: 0;
   transition: 500ms linear;
