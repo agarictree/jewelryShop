@@ -5,6 +5,7 @@
 @import "footer.scss";
 @import "recomends.scss";
 @import "shop.scss";
+@import "shoppingCard.scss";
 
 html {
     max-width: 100%;
@@ -15,13 +16,14 @@ body {
     padding: 0;
     background-color: #0E0E0E;
     color: #EBEBEB;
+    width: 100%;
 }
 #root {
-    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    min-height: 100vh;
+    
     margin: 0 auto;
     background-color: inherit;
     @media screen and (max-width: 1000px) {
@@ -30,6 +32,7 @@ body {
 }
 main {
     background-color: inherit;
+    min-height: 100vh;
 }
 
 p {
@@ -54,6 +57,10 @@ h2 {
     line-height: 1.5rem;
     letter-spacing: 0.15rem;
     position: relative;
+    @media screen and (max-width: 1000px) {
+        font-size: 1.1rem;
+        line-height: 1rem;
+    }
     &::before {
         content: "";
         display: block;
@@ -65,6 +72,9 @@ h2 {
         width: 100px;
         height: 2px;
         background-color: #EBEBEB;
+        @media screen and (max-width: 1000px) {
+            width: 50px;
+        }
     }
 
     &::after {
@@ -78,6 +88,9 @@ h2 {
         width: 100px;
         height: 2px;
         background-color: #EBEBEB;
+        @media screen and (max-width: 1000px) {
+            width: 50px;
+        }
     }
 }
 }
@@ -149,6 +162,11 @@ button {
     }
 }
 
+
+.shopping-card--fill {
+    background-image: url("../img/svg/cart-check.svg");
+}
+
 .light {
     background-color: #EBEBEB;
     color: #151515;
@@ -164,6 +182,15 @@ button {
         }
     }
     .change_theme-close--open {
-            background-image: url("../img/svg/x-circle-fill.svg");
+        background-image: url("../img/svg/x-circle-fill.svg");
+    }
+    aside form label {
+        color: #EBEBEB;
+    }
+    .shopping-card {
+        background-image: url("../img/svg/cart-plus-fill.svg");
+    }
+    .shopping-card--fill {
+        background-image: url("../img/svg/cart-check-fill.svg");
     }
 }

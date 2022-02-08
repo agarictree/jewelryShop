@@ -37,7 +37,7 @@ header {
         max-width: 100%;
         box-sizing: border-box;
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: row nowrap;
         background-color: inherit;
         .change_theme-close {
             display: none;
@@ -74,7 +74,7 @@ header {
             right: -100%;
             flex-flow: column wrap;
             width: 100%;
-            z-index: 10;
+            z-index: 60;
         }
         li {
             list-style: none;
@@ -139,3 +139,22 @@ header {
     right: 0;
 }
 
+.shopping-card {
+    display: block;
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/svg/cart-plus.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    margin: 30px;
+    cursor: pointer;
+    @media screen and (max-width: 1000px) {
+        margin: 20px;
+    }
+}
+
+.shopping-card--fill {
+    background-image: url("../img/svg/cart-check.svg");
+}

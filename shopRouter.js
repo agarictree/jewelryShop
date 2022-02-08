@@ -71,14 +71,14 @@ function Page(props) {
                         </tr>
                     </tfoot>
                     </table>
-                    <AddToCardButton item={props.info} />
+                    <AddToCardButton item={props.info} store={props.store}/>
                     </div>
                 </div>
             </section>
         </>
     )
 }
-function GenerateRoutes() {
+function GenerateRoutes(props) {
     let arr = [];
 
     content.forEach(item => {
@@ -87,20 +87,20 @@ function GenerateRoutes() {
 
         let obj = {};
         obj.path = `/${url}`;
-        obj.element = <Page info={item}/>
+        obj.element = <Page info={item} store={props.store}/>
         arr.push(obj);
     });
     return useRoutes(arr);
 }
 
-export default function ShopRouter() {
+export default function ShopRouter(props) {
 
     return (
     <>
         <h2>
             <span className="h2-text">Информация о товаре</span>
-            </h2>
-        <GenerateRoutes />
+        </h2>
+        <GenerateRoutes store = {props.store}/>
     </>
     )
 }

@@ -20,15 +20,15 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: #ebebeb;
+  background-color: inherit;
   transition: 500ms linear;
-  z-index: 30;
+  z-index: 60;
   animation: openedmenu 800ms linear;
 }
 
 .shop_container .openMenuHead:first-child:after {
   border-top-color: transparent;
-  border-bottom-color: #151515;
+  border-bottom-color: darkolivegreen;
 }
 
 .shop_container aside {
@@ -56,13 +56,14 @@
 
 .shop_container aside h4:first-child {
   position: relative;
-  z-index: 60;
+  z-index: 50;
   background-color: inherit;
 }
 
 @media screen and (max-width: 1000px) {
   .shop_container aside h4 {
     margin: 7px 0;
+    padding: 7px 0;
   }
 }
 
@@ -70,7 +71,7 @@
   .shop_container aside h4:first-child::after {
     content: "";
     border: 5px solid transparent;
-    border-top-color: #151515;
+    border-top-color: darkolivegreen;
     display: inline-block;
     margin-left: 10px;
     transition: 500ms ease;
@@ -88,6 +89,9 @@
     width: 100%;
     background-color: inherit;
   }
+  .shop_container aside form label {
+    color: #ebebeb;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -96,6 +100,10 @@
     flex-flow: row nowrap;
     justify-content: stretch;
   }
+}
+
+.shop_container aside form button {
+  color: inherit;
 }
 
 @media screen and (max-width: 1000px) {

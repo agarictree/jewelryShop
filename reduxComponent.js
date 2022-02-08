@@ -3,12 +3,12 @@ import Router from "./router";
 import Footer from "./footer";
 import Header from "./header";
 import { connect } from "react-redux";
-import { getAllItems, sortByMaterialsCreator, sortByStoreCreator, sortByTypeCreator } from "./actions";
+import { addToCardCreator, getAllItems, sortByMaterialsCreator, sortByStoreCreator, sortByTypeCreator } from "./actions";
 
 function ReduxComponent(props) {
     return (
         <>
-        <Header />
+        <Header store={props}/>
         <Router store={props}/>
         <Footer />
         </>
@@ -32,6 +32,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         getAllItems: () => {
             return dispatch(getAllItems());
+        },
+        addToCard: (items) => {
+            return dispatch(addToCardCreator(items));
         }
     }
 }

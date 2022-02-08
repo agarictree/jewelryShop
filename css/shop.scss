@@ -15,15 +15,15 @@
          top: 100%;
          left: 0;
          width: 100%;
-         background-color: #ebebeb;
+         background-color: inherit;
          transition: 500ms linear;
-         z-index: 30;
+         z-index: 60;
          animation: openedmenu 800ms linear;
      }
      
      .openMenuHead:first-child:after {
         border-top-color: transparent;
-        border-bottom-color: #151515;
+        border-bottom-color: darkolivegreen;
     }
 
     aside {
@@ -44,17 +44,18 @@
             padding: 10px 0;
             &:first-child {
                 position: relative;
-                z-index: 60;
+                z-index: 50;
                 background-color: inherit;
             }
             @media screen and (max-width: 1000px) {
                 margin: 7px 0;
+                padding: 7px 0;
             }        
             &:first-child::after {
                 @media screen and (max-width: 1000px) {
                     content: "";
                     border: 5px solid transparent;
-                    border-top-color: #151515;
+                    border-top-color: darkolivegreen;
                     display: inline-block;
                     margin-left: 10px;
                     transition: 500ms ease;
@@ -69,6 +70,9 @@
                     top: -100%;
                     width: 100%;
                     background-color: inherit;
+                    label {
+                        color: #ebebeb;
+                    }
                 }
             .shop_container_aside_block {
                 @media screen and (max-width: 1000px) {
@@ -79,6 +83,7 @@
             }
 
             button {
+                color: inherit;
                 @media screen and (max-width: 1000px) {
                     background-color: transparent;
                     padding: 0;

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header(props) {
+
     function changeThemeHandler(e) {
         document.body.classList.toggle("light");
         if(document.body.classList.contains("light")) {
@@ -15,6 +16,11 @@ export default function Header() {
         menu.classList.toggle("isOpen");
         e.target.classList.toggle("change_theme-close--open");
     }
+
+    function closeMenu() {
+        let menu = document.querySelector(".menu");
+        menu.classList.remove("isOpen");
+    }
     return (
         <header>
         <div className="header_container">
@@ -25,12 +31,12 @@ export default function Header() {
             <div title="change theme" className="change_theme" data-theme="dark" onClick={changeThemeHandler}/>
             <div className="change_theme-close" onClick={onCloseHandler}></div>
             <ul className="menu">
-                <li><Link to="/">Главная</Link></li>
-                <li><Link to="/shop">Витрина</Link></li>
-                <li><Link to="/shipping">Доставка и оплата</Link></li>
-                <li><Link to="/about">О нас</Link></li>
+                <li><Link to="/" onClick={closeMenu}>Главная</Link></li>
+                <li><Link to="/shop" onClick={closeMenu}>Витрина</Link></li>
+                <li><Link to="/shipping" onClick={closeMenu}>Доставка и оплата</Link></li>
+                <li><Link to="/about" onClick={closeMenu}>О нас</Link></li>
             </ul>
-
+        <Link to="/shoppingCard"><div className="shopping-card"></div></Link>
         </nav>
     </header>
     )

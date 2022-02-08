@@ -8,7 +8,7 @@ import reducer from "./reducer";
 import { Connected } from "./reduxComponent";
 import content from "./content";
 
-let store = createStore(reducer, {show: content});
+let store = createStore(reducer, {show: content, card: []});
 
 function Index() {
     return (
