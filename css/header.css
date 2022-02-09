@@ -192,5 +192,20 @@ nav .change_theme-close--open {
 }
 
 .shopping-card--fill {
-  background-image: url("../img/svg/cart-check.svg");
+  display: block;
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  background-image: url("../img/svg/cart-plus.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin: 30px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .shopping-card--fill {
+    margin: 20px;
+  }
 }

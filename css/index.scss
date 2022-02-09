@@ -33,6 +33,8 @@ body {
 main {
     background-color: inherit;
     min-height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 p {
@@ -192,5 +194,8 @@ button {
     }
     .shopping-card--fill {
         background-image: url("../img/svg/cart-check-fill.svg");
+    }
+    .shopping-card_delete {
+        background-image: url("../img/svg/x-circle-fill.svg");
     }
 }

@@ -23,7 +23,7 @@ function Page(props) {
                     {props.info.pack.map((elem, i) => {
                         if(i > 0) {
                         return (
-                            <img src={`${props.info.images}/${elem}`} alt="image" onClick={galleryHandler}/>
+                            <img src={`${props.info.images}/${elem}`} alt="image" onClick={galleryHandler} key={i}/>
                         )
                     }
                     })}
@@ -43,8 +43,8 @@ function Page(props) {
                         <tr>
                             <td>{props.info.type}</td>
                             <td>
-                                {props.info.materialsRU.map(elem => {
-                                    return <p>{elem}</p>
+                                {props.info.materialsRU.map((elem, i) => {
+                                    return <p key={i}>{elem}</p>
                                 })}
                             </td>
                             <td>
