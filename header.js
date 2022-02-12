@@ -36,7 +36,7 @@ export default function Header(props) {
                 <li><Link to="/shipping" onClick={closeMenu}>Доставка и оплата</Link></li>
                 <li><Link to="/about" onClick={closeMenu}>О нас</Link></li>
             </ul>
-        <Link to="/shoppingCard"><div className={JSON.parse(localStorage.getItem("added")).length > 0 ? "shopping-card--fill" : "shopping-card"}></div></Link>
+        <Link to="/shoppingCard"><div className={ localStorage.getItem("added") != null ? "shopping-card--fill" : "shopping-card"}></div></Link>
         </nav>
     </header>
     )

@@ -781,6 +781,65 @@ table th, table td, table tr {
   background-size: 100% 100%;
   background-position: center center;
   margin: 30px;
+  cursor: pointer;
+}
+
+.buyerInfo {
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (max-width: 1000px) {
+  .buyerInfo {
+    width: 100%;
+  }
+}
+
+.buyerInfo .invalid {
+  border: 1px solid darkred;
+}
+
+.buyerInfo .invalid_text {
+  color: darkred;
+}
+
+.buyerInfo input, .buyerInfo label {
+  display: block;
+}
+
+.buyerInfo label {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 7px 5px;
+}
+
+.buyerInfo input {
+  padding: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  border: 1px solid darkolivegreen;
+}
+
+.buyerInfo .buyerInfo_fullname {
+  width: 100%;
+  display: flex;
+}
+
+.buyerInfo .buyerInfo_fullname_block {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.buyerInfo .buyerInfo_fullname_block input {
+  width: 100%;
+}
+
+.buyerInfo button {
+  margin-top: 10px;
 }
 
 html {

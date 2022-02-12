@@ -6,7 +6,7 @@ let initState = {
     card: []
 }
 
-localStorage.setItem("added", JSON.stringify(initState.card));
+// localStorage.setItem("added", JSON.stringify(initState.card));
 export default function reducer(state = initState, action) {
     switch (action.type) {
         case SORT_BY_MATERIALS:
