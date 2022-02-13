@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function ShoppingCard(props) {
     
@@ -30,6 +31,7 @@ export default function ShoppingCard(props) {
             localStorage.setItem("added", JSON.stringify(products));
             setState(products);
         }
+        window.location.reload();
     }
     
     function sendOrderHandler(e) {
@@ -39,11 +41,35 @@ export default function ShoppingCard(props) {
         let order = {
             firstname: elements.firstname.value,
             lastname: elements.lastname.value,
+            city: elements.city.value,
             address: elements.adress.value,
             zip: elements.zip.value,
             email: elements.email.value
         }
         console.log(order);
+
+        let block = document.querySelector(".responce");
+        let para = block.firstElementChild;
+
+        axios.post("https://jsonplaceholder.typicode.com/posts", {
+            data: order,
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }).then(res => {
+            let responce = res.data;
+            let status = res.status;
+
+            if(status == 201) {
+                block.classList.remove("hide");
+                para.textContent = "Заказ успешно оформлен. Ждите подтверждение оплаты на электронный адрес";
+                setTimeout(() => {
+                    block.classList.add("hide");
+                    localStorage.removeItem("added");
+                    setState([]);
+                }, 2000);
+            }
+        });
     }
     function nameChangeHandler(e) {
         e.target.checkValidity();
@@ -55,7 +81,6 @@ export default function ShoppingCard(props) {
             span.textContent = "Поле заполнено неверно.";
             e.target.classList.add("invalid");
         } else {
-            span.remove();
             e.target.classList.remove("invalid");
         }
 
@@ -109,8 +134,11 @@ export default function ShoppingCard(props) {
                         </div>
                         </div>
 
+                        <label htmlFor="city"><span>Город</span><span className="invalid_text"></span></label>
+                        <input type="text" name="city" id="city" required pattern="[А-Яа-яёЁйЙъЪьЬ0-9\W.-]+" onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
+
                         <label htmlFor="adress"><span>Адрес</span><span className="invalid_text"></span></label>
-                        <input type="text" name="adress" id="adress"  required pattern="[А-Яа-яёЁйЙъЪьЬ0-9 .-]+" minLength={20}  onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
+                        <input type="text" name="adress" id="adress"  required pattern="[А-Яа-яёЁйЙъЪьЬ0-9\W.,-]+" minLength={20}  onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
 
                         <label htmlFor="zip"><span>Индекс</span><span className="invalid_text"></span></label>
                         <input type="text" name="zip" id="zip" required pattern="\d{6}"  onInput={nameChangeHandler}  onInvalid={onInvalidNameHandler}/>
@@ -120,6 +148,9 @@ export default function ShoppingCard(props) {
 
                         <button type="submit">Отправить</button>
                     </form>
+                    <section className="responce hide">
+                        <p></p>
+                    </section>
                     </>
                 )
             })
