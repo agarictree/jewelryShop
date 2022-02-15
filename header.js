@@ -4,7 +4,18 @@ import { Link } from "react-router-dom";
 export default function Header(props) {
 
     function changeThemeHandler(e) {
-        document.body.classList.toggle("light");
+        let savedTheme = localStorage.getItem("theme");
+
+        if(savedTheme == "light"){
+            localStorage.setItem("theme", "dark");
+            document.body.classList.remove("light");
+        }
+
+        if(savedTheme == "dark"){
+            localStorage.setItem("theme", "light");
+            document.body.classList.add("light");
+        }
+        
         if(document.body.classList.contains("light")) {
             e.target.classList.add("change_theme--light");
         } else {
@@ -28,7 +39,7 @@ export default function Header(props) {
                 <img src="./img/logo2_170.png" alt="head" className="logo_text" />
         </div>
         <nav>
-            <div title="change theme" className="change_theme" data-theme="dark" onClick={changeThemeHandler}/>
+            <div title="change theme" className={localStorage.getItem("theme") == "dark" ? "change_theme" : "change_theme change_theme--light"} data-theme="dark" onClick={changeThemeHandler}/>
             <div className="change_theme-close" onClick={onCloseHandler}></div>
             <ul className="menu">
                 <li><Link to="/" onClick={closeMenu}>Главная</Link></li>

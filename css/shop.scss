@@ -10,8 +10,6 @@
     }
     .openMenu {
          display: block;
-         position: absolute;
-         margin-top: 0;
          top: 100%;
          left: 0;
          width: 100%;
@@ -19,6 +17,12 @@
          transition: 500ms linear;
          z-index: 60;
          animation: openedmenu 800ms linear;
+     }
+     .closedMenu {
+        top: -1000%;
+        visibility: hidden;
+        animation: closedmenu 800ms linear;
+        z-index: -100;
      }
      
      .openMenuHead:first-child:after {
@@ -67,7 +71,7 @@
             transition: 500ms linear;
                 @media screen and (max-width: 1000px) {
                     position: absolute;
-                    top: -100%;
+                    top: 0;
                     width: 100%;
                     background-color: inherit;
                     label {
@@ -117,6 +121,7 @@
     flex-flow: row wrap;
     justify-content: space-around;
     .card {
+        align-self: flex-start;
         max-width: 30%;
         padding: 10px;
         margin-bottom: 10px;
@@ -164,6 +169,8 @@
         .item_page_gallery_general {
             width: 100%;
             img {
+                display: block;
+                margin: 0 auto;
                 max-width: 100%;
                 @media screen and (max-width: 1000px) {
                     display: block;
@@ -178,10 +185,12 @@
             width: 100%;
             img {
                 cursor: pointer;
-                border: 1px solid olive;
                 padding: 5px;
                 width: 20%;
                 flex: 1 0 20%;
+                &:hover {
+                    background-color: lightgray;
+                }
             }
         }
     }
@@ -201,10 +210,22 @@ table {
 }
 @keyframes openedmenu {
     0% {
-        margin-top: -100%;
+        top: -1000%;
+        visibility: hidden;
     }
     100% {
-        margin-top: 0;
+        top: 100%;
+        visibility: visible;
+    }
+}
+@keyframes closedMenu {
+    0% {
+        top: 100%;
+        visibility: visible;
+    }
+    100% {
+        top: -1000%;
+        visibility: hidden;
     }
 }
 

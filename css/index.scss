@@ -25,7 +25,7 @@ body {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    
+    overflow-x: hidden;
     margin: 0 auto;
     background-color: inherit;
     @media screen and (max-width: 1000px) {
@@ -109,15 +109,17 @@ h4 {
 button {
     display: block;
     margin: 0 auto;
-    padding: 10px;
     border-radius: 7px;
     border: 1px solid transparent;
-    transition: 500ms linear;
+    transition: 100ms linear;
     background-color: teal;
     color: #EBEBEB;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    &:active {
+        background-color: darken($color: teal, $amount: 10);
+    }
     a {
         font-family: 'Cormorant Infant', serif;
         color: #EBEBEB;
@@ -125,11 +127,10 @@ button {
         font-size: 1.25rem;
         width: 100%;
         z-index: 10;
+        padding: 10px;
     }
     &:hover {
-        // background: transparent;
-        // border: 1px solid #EBEBEB;
-        transition: 1000ms linear;
+        transition: 100ms linear;
         &::before {
             content: "";
             width: 15px;

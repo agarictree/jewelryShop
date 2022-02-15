@@ -71,31 +71,37 @@ export default function ShoppingCard(props) {
             }
         });
     }
+
+    function testField(regExp, str) {
+        return regExp.test(str);
+    }
+    let obj = {
+        firstname: /^[А-Яа-яёЁйЙъЪьЬ]{2,}$/,
+        lastname: /^[А-Яа-яёЁйЙъЪьЬ]{2,}$/,
+        city: /^[А-Яа-яёЁйЙъЪьЬ\.\-\s]$/,
+        adress: /^[А-Яа-яёЁйЙъЪьЬ\s\-\.,0-9]{5,}$/,
+        zip: /^[0-9]{6}$/, 
+        email: /^[^\W_\d][a-z0-9-._]{1,20}@[a-z0-9]{1,10}\.[a-z]{2,10}$/
+    }
     function nameChangeHandler(e) {
-        e.target.checkValidity();
-        let isValid = e.target.validity;
         let label = e.target.previousElementSibling;
         let span = label.querySelector(".invalid_text");
+        let regExp = obj[e.target.id];
+        let isValid = testField(regExp, e.target.value);
 
-        if(isValid.patternMismatch) {
+        console.log(isValid);
+        if(!isValid) {
             span.textContent = "Поле заполнено неверно.";
             e.target.classList.add("invalid");
         } else {
+            span.textContent = '';
             e.target.classList.remove("invalid");
-        }
-
-        if(isValid.tooShort) {
-            console.log(span.textContent);
-            span.textContent = "Поле слишком короткое.";
-            e.target.classList.add("invalid");
         }
         
     }
     function onInvalidNameHandler(e) {
         if(!e.target.value) {
             e.target.setCustomValidity("Это поле обязательно для заполнения.")
-        } else {
-            e.target.setCustomValidity("Поле должно состоять из букв.")
         }
     }
     return (
@@ -123,28 +129,28 @@ export default function ShoppingCard(props) {
 
                         <div className="buyerInfo_fullname_block">
                         
-                        <label htmlFor="firstname"><span>Имя</span><span className="invalid_text"></span></label>
-                        <input type="text" name="firstname" id="firstname" required pattern="[А-Яа-яёЁйЙъЪьЬ]+" onInput={nameChangeHandler} onInvalid={onInvalidNameHandler} minLength={2}/>
+                        <label htmlFor="firstname"><span className="label_text">Имя</span><span className="invalid_text"></span></label>
+                        <input type="text" name="firstname" id="firstname" onInput={nameChangeHandler} onInvalid={onInvalidNameHandler} minLength={2}/>
                         </div>
 
                         
                         <div className="buyerInfo_fullname_block">
-                        <label htmlFor="firstname"><span>Фамилия</span><span className="invalid_text"></span></label>
-                        <input type="text" name="lastname" id="lastname" required pattern="[А-Яа-яёЁйЙъЪьЬ]+" onInput={nameChangeHandler}  onInvalid={onInvalidNameHandler}minLength={2}/>
+                        <label htmlFor="firstname"><span className="label_text">Фамилия</span><span className="invalid_text"></span></label>
+                        <input type="text" name="lastname" id="lastname" onInput={nameChangeHandler}  onInvalid={onInvalidNameHandler}minLength={2}/>
                         </div>
                         </div>
 
-                        <label htmlFor="city"><span>Город</span><span className="invalid_text"></span></label>
-                        <input type="text" name="city" id="city" required pattern="[А-Яа-яёЁйЙъЪьЬ0-9\W.-]+" onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
+                        <label htmlFor="city"><span className="label_text">Город</span><span className="invalid_text"></span></label>
+                        <input type="text" name="city" id="city" onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
 
-                        <label htmlFor="adress"><span>Адрес</span><span className="invalid_text"></span></label>
-                        <input type="text" name="adress" id="adress"  required pattern="[А-Яа-яёЁйЙъЪьЬ0-9\W.,-]+" minLength={20}  onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
+                        <label htmlFor="adress"><span className="label_text">Адрес</span><span className="invalid_text"></span></label>
+                        <input type="text" name="adress" id="adress" onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
 
-                        <label htmlFor="zip"><span>Индекс</span><span className="invalid_text"></span></label>
-                        <input type="text" name="zip" id="zip" required pattern="\d{6}"  onInput={nameChangeHandler}  onInvalid={onInvalidNameHandler}/>
+                        <label htmlFor="zip"><span className="label_text">Индекс</span><span className="invalid_text"></span></label>
+                        <input type="text" name="zip" id="zip" onInput={nameChangeHandler}  onInvalid={onInvalidNameHandler}/>
 
-                        <label htmlFor="email"><span>Электронный адрес</span><span className="invalid_text"></span></label>
-                        <input type="email" name="email" id="email" required pattern="^[^\W_][a-z0-9-._]+@[a-z]+.[a-z]{2,}$"  onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
+                        <label htmlFor="email"><span className="label_text">Электронный адрес</span><span className="invalid_text"></span></label>
+                        <input type="email" name="email" id="email" onInput={nameChangeHandler} onInvalid={onInvalidNameHandler}/>
 
                         <button type="submit">Отправить</button>
                     </form>

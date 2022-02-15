@@ -75,6 +75,7 @@ header {
             flex-flow: column wrap;
             width: 100%;
             z-index: 60;
+            visibility: hidden;
         }
         li {
             list-style: none;
@@ -137,6 +138,7 @@ header {
 
 .isOpen {
     right: 0;
+    visibility: visible;
 }
 
 .shopping-card {

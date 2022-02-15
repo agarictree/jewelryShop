@@ -1,3 +1,20 @@
+.shipping_container {
+    max-width: 60%;
+    margin: 0 auto;
+}
+.shipping_services {
+    display: flex;
+    justify-content: space-around;
+}
+.shipping_services-block{
+    max-width: 30%;
+    img {
+        max-width: 100%;
+    }
+    p {
+        line-height: 1.3rem;
+    }
+}
 p {
     text-align: center;
 }

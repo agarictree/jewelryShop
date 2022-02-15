@@ -95,6 +95,7 @@ nav .change_theme-close--open {
     flex-flow: column wrap;
     width: 100%;
     z-index: 60;
+    visibility: hidden;
   }
 }
 
@@ -170,6 +171,7 @@ nav .change_theme-close--open {
 
 .isOpen {
   right: 0;
+  visibility: visible;
 }
 
 .shopping-card {

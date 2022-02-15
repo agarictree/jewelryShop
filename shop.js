@@ -5,11 +5,11 @@ export default function Shop(props) {
     let store = props.store;
     let [isMedia, setState] = useState(false);
 
-    useEffect(() => {
-        if(document.body.offsetWidth < 1000) {
-            setState(true);
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(document.body.offsetWidth < 1000) {
+    //         setState(true);
+    //     }
+    // }, []);
 
     function chooseItems(e) {
         let prop = e.target.value;
@@ -53,10 +53,17 @@ export default function Shop(props) {
         }
     }
     function sortHandler(e) {
-        e.target.nextElementSibling.classList.toggle("openMenu");
-        isMedia ? setState(false) : setTimeout(() => setState(true), 300);
-        e.target.classList.toggle("openMenuHead");
+        let form = e.target.nextElementSibling;
+        
 
+        if(form.classList.contains("openMenu")) {
+            form.classList.remove("openMenu");
+            form.classList.add("closedMenu");
+        } else {
+            form.classList.remove("closedMenu");
+            form.classList.add("openMenu");
+        }
+        
     }
     return (
         <main>
@@ -65,11 +72,15 @@ export default function Shop(props) {
             
             <aside>
             <h4 onClick={sortHandler}>Сортировать по:</h4>
-                <form action="/" hidden={isMedia}>
-                <button onClick={getAll}>Показать все</button>
+                <form action="/">
+                
                 <h4>Тип украшения</h4>
 
                 <div className="shop_container_aside_block">
+                <div className="input">
+                <label htmlFor="necklace">Показать все</label>
+                <input type="radio" id="all" name="type" value="Показать все" onChange={getAll}/><br />
+                </div>
                 <div className="input">
                 <label htmlFor="necklace">Колье</label>
                 <input type="radio" id="necklace" name="type" value="Колье" onChange={chooseByType}/><br />
@@ -106,12 +117,12 @@ export default function Shop(props) {
                 <div className="shop_container_aside_block">
                 <div className="input">
                 <label htmlFor="clay">Полимерная глина</label>
-                <input type="radio" id="clay" name="materials" value="clay" onChange={chooseItems}/><br />
+                <input type="radio" id="clay" name="type" value="clay" onChange={chooseItems}/><br />
                 </div>
 
                 <div className="input">
                 <label htmlFor="tin">Сплав "пьютер"</label>
-                <input type="radio" id="tin" name="materials" value="tin" onChange={chooseItems}/><br />
+                <input type="radio" id="tin" name="type" value="tin" onChange={chooseItems}/><br />
                 </div>
                 </div>
                 <h4>В наличии</h4>

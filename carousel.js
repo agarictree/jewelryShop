@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import content from "./content";
 
-function createBlock(img, srcSet, text, sizes) {
+function createBlock(img, srcSet, text, sizes, path) {
+    let arr = path.split("/");
     return (
         <div className="card">
             <img src={img} alt="изделие" srcSet={srcSet} sizes={sizes}/>
                 <div>
                     <h4 className="m-2">{text}</h4>
-                        <button className="card_btn"><Link to="/shop">Подробнее</Link></button>
+                        <button className="card_btn"><Link to={`./shop/${arr[arr.length - 1]}`}>Подробнее</Link></button>
                 </div>
         </div>
     )
@@ -23,7 +24,6 @@ export default function Carousel() {
         let parentPos = parent.getBoundingClientRect();
             
             if(parentPos.left >= (childPos.right - (Math.abs(childPos.left) / 2))) {
-                console.log("end");
             } else {
                 child.style.left = childPos.left - 200 + "px";
             }
@@ -48,7 +48,7 @@ export default function Carousel() {
         <section id="carousel">
             {
                 content.map(item => {
-                    return createBlock(item.img, item.srcSet, item.text, item.sizes);
+                    return createBlock(item.img, item.srcSet, item.text, item.sizes, item.images);
                 })
             }
         </section>

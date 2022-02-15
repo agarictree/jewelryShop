@@ -15,8 +15,6 @@
 
 .shop_container .openMenu {
   display: block;
-  position: absolute;
-  margin-top: 0;
   top: 100%;
   left: 0;
   width: 100%;
@@ -24,6 +22,13 @@
   transition: 500ms linear;
   z-index: 60;
   animation: openedmenu 800ms linear;
+}
+
+.shop_container .closedMenu {
+  top: -1000%;
+  visibility: hidden;
+  animation: closedmenu 800ms linear;
+  z-index: -100;
 }
 
 .shop_container .openMenuHead:first-child:after {
@@ -85,7 +90,7 @@
 @media screen and (max-width: 1000px) {
   .shop_container aside form {
     position: absolute;
-    top: -100%;
+    top: 0;
     width: 100%;
     background-color: inherit;
   }
@@ -142,6 +147,7 @@
 }
 
 .shop_vitrina .card {
+  align-self: flex-start;
   max-width: 30%;
   padding: 10px;
   margin-bottom: 10px;
@@ -212,6 +218,8 @@
 }
 
 .shop_item_page .item_page_gallery .item_page_gallery_general img {
+  display: block;
+  margin: 0 auto;
   max-width: 100%;
 }
 
@@ -231,10 +239,13 @@
 
 .shop_item_page .item_page_gallery .item_page_gallery_links img {
   cursor: pointer;
-  border: 1px solid olive;
   padding: 5px;
   width: 20%;
   flex: 1 0 20%;
+}
+
+.shop_item_page .item_page_gallery .item_page_gallery_links img:hover {
+  background-color: lightgray;
 }
 
 table {
@@ -254,10 +265,23 @@ table th, table td, table tr {
 
 @keyframes openedmenu {
   0% {
-    margin-top: -100%;
+    top: -1000%;
+    visibility: hidden;
   }
   100% {
-    margin-top: 0;
+    top: 100%;
+    visibility: visible;
+  }
+}
+
+@keyframes closedMenu {
+  0% {
+    top: 100%;
+    visibility: visible;
+  }
+  100% {
+    top: -1000%;
+    visibility: hidden;
   }
 }
 
