@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
 
+
+    let shoppingCard = props.store.store.card;
+    let storage = localStorage.getItem("added");
+    if(storage == null) {
+        localStorage.setItem("added", JSON.stringify(shoppingCard));
+    }
+
+    console.log(JSON.parse(localStorage.getItem("added")).length);
     function changeThemeHandler(e) {
         let savedTheme = localStorage.getItem("theme");
 
@@ -47,7 +55,7 @@ export default function Header(props) {
                 <li><Link to="/shipping" onClick={closeMenu}>Доставка и оплата</Link></li>
                 <li><Link to="/about" onClick={closeMenu}>О нас</Link></li>
             </ul>
-        <Link to="/shoppingCard"><div className={ localStorage.getItem("added") != null ? "shopping-card--fill" : "shopping-card"}></div></Link>
+        <Link to="/shoppingCard"><div className={storage != null && JSON.parse(storage).length > 0 ? "shopping-card--fill" : "shopping-card"}></div></Link>
         </nav>
     </header>
     )

@@ -3,15 +3,11 @@ import React from "react";
 export default function AddToCardButton(props) {
     let store = props.store;
     console.log(store);
-    let shoppingCard = props.store.store.card;
-    localStorage.setItem("added", JSON.stringify(shoppingCard));
 
     function addToCardHandler(e) {
-        let card = document.querySelector(".shopping-card");
+        // let card = document.querySelector(".shopping-card");
+        let shoppingCard = props.store.store.card;
         let count = document.querySelector("#count");
-
-        
-        card.classList.add("shopping-card--fill");
         
         let arr = [];
         let itemCopy = props.item;

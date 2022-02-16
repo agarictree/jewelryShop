@@ -984,7 +984,7 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  padding: 10px 10px 50px 10px;
+  padding: 10px;
 }
 
 .contact_form .contact_form-header {
@@ -994,14 +994,15 @@ p {
 }
 
 .contact_form label {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   color: white;
   font-weight: bold;
   margin-bottom: 7px;
 }
 
-.contact_form label::after {
+.contact_form .input_text::after {
   content: "*";
 }
 
@@ -1021,6 +1022,12 @@ p {
   width: 100%;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.4);
+  color: lightgray;
+}
+
+.contact_form .contact_form-input .invalid_text {
+  font-size: 0.9rem;
+  margin-right: 7px;
 }
 
 .contact_form .contact_form-textarea {
@@ -1033,11 +1040,23 @@ p {
   width: 100%;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.4);
+  color: lightgray;
 }
 
 .contact_form button {
   margin-top: 10px;
   padding: 10px;
+}
+
+.contact_form-success {
+  color: white;
+  transition: 500ms linear;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+.notVisible {
+  visibility: hidden;
 }
 
 html {
@@ -1169,6 +1188,12 @@ button {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+}
+
+button:disabled {
+  background-color: #001a1a;
+  color: gray;
+  cursor: not-allowed;
 }
 
 button:active {

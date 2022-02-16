@@ -1,4 +1,32 @@
 import React from "react";
+import axios from "axios";
+
+import { textareaHandler, nameChangeHandler } from "./validity.js";
+
+function submitMessageHandler(e) {
+    e.preventDefault();
+    let target = e.target;
+    let elements = target.elements;
+    let success = document.querySelector(".contact_form-success");
+    let data = {
+        firstname: elements.firstname.value,
+        email: elements.email.value,
+        message: elements.message.value
+    }
+    axios.post("https://jsonplaceholder.typicode.com/posts", {
+            data: data,
+            headers: {
+                "Content-type": "multipart/form-data; charset=UTF-8"
+            }
+        }).then(result => {
+            console.log(result);
+            if(result.status >= 200 && result.status < 300) {
+                success.classList.remove("notVisible");
+                success.textContent = 'Сообщение успешно отправлено. Мы свяжемся с вами с течении 1-3 дней';
+                setTimeout(() => success.classList.add("notVisible"), 3000);
+            }
+        })
+}
 
 export default function About() {
     return (
@@ -57,27 +85,29 @@ export default function About() {
         </div>
         <div className="contact_form">
             <h3 className="contact_form-header">Связаться с нами</h3>
-            <form action="/">
+            <form action="/" onSubmit={submitMessageHandler}>
 
 
             <div className="contact_form-input">
             <div>
-            <label htmlFor="name">Ваше имя:</label>
-            <input type="text" name="name" id="name" placeholder="Имя"/>
+            <label htmlFor="name"><span className="input_text">Ваше имя:</span><span className="invalid_text"></span></label>
+            <input type="text" name="name" id="firstname" required onInput={nameChangeHandler} placeholder="Имя"/>
             </div>
 
             <div>
-            <label htmlFor="email">Ваш email:</label>
-            <input type="email" name="email" id="email" placeholder="Email" />
+            <label htmlFor="email"><span className="input_text">Ваш email:</span><span className="invalid_text"></span></label>
+            <input type="email" name="email" id="email" required onInput={nameChangeHandler} placeholder="Email" />
             </div>
             </div>
 
             <div className="contact_form-textarea">
-            <label htmlFor="message">Сообщение:</label>
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Ваше сообщение здесь"></textarea>
+            <label htmlFor="message"><span className="input_text">Сообщение:</span><span className="invalid_text"></span></label>
+            <textarea name="message" id="message" required onInput={textareaHandler} cols="30" rows="10" placeholder="Ваше сообщение здесь"></textarea>
             </div>
 
             <button type="submit">Отправить</button>
+
+            <div className="contact_form-success notVisible"></div>
             </form>
         </div>
         </section>
