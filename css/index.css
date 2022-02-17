@@ -766,6 +766,37 @@ table th, table td, table tr {
   padding: 10px;
 }
 
+.shop_addToCard-tooltip {
+  opacity: 1;
+  background-color: aliceblue;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  margin-left: 10px;
+  transition: opacity 300ms linear;
+  color: dimgray;
+}
+
+.shop_addToCard-tooltip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: aliceblue;
+  border: 1px solid gray;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  transform: rotate(45deg);
+  transform-origin: center center;
+  position: absolute;
+  top: calc(50% - 4px);
+  left: -5px;
+}
+
+.transparent {
+  opacity: 0;
+}
+
 .shopping-card_empty {
   text-align: center;
 }
@@ -814,6 +845,7 @@ table th, table td, table tr {
   width: 60%;
   margin: 0 auto;
   position: relative;
+  background-color: inherit;
 }
 
 @media screen and (max-width: 1000px) {
@@ -866,6 +898,7 @@ table th, table td, table tr {
 
 .buyerInfo button {
   margin-top: 10px;
+  padding: 10px;
 }
 
 .responce {
@@ -874,7 +907,8 @@ table th, table td, table tr {
   height: 250px;
   top: calc(50% - 125px);
   left: calc(50% - 250px);
-  background-color: inherit;
+  background-color: aliceblue;
+  color: dimgray;
   border: 1px solid grey;
   padding: 10px;
   z-index: 100;
@@ -901,6 +935,13 @@ table th, table td, table tr {
 
 .label_text::after {
   content: "*";
+}
+
+.shopping-card_clear {
+  padding: 10px 5px;
+  text-align: right;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .shipping_container {
@@ -1057,6 +1098,7 @@ p {
 
 .notVisible {
   visibility: hidden;
+  transition: 300ms linear;
 }
 
 html {

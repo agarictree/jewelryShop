@@ -308,3 +308,34 @@ table th, table td, table tr {
 .shop_addToCard .shop_addToCard-input input {
   padding: 10px;
 }
+
+.shop_addToCard-tooltip {
+  opacity: 1;
+  background-color: aliceblue;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  margin-left: 10px;
+  transition: opacity 300ms linear;
+  color: dimgray;
+}
+
+.shop_addToCard-tooltip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: aliceblue;
+  border: 1px solid gray;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  transform: rotate(45deg);
+  transform-origin: center center;
+  position: absolute;
+  top: calc(50% - 4px);
+  left: -5px;
+}
+
+.transparent {
+  opacity: 0;
+}

@@ -49,12 +49,12 @@ function Page(props) {
                             </td>
                             <td>
                                 <p>
-                                {props.info.decorations.map(elem => {
+                                {props.info.decorations.map((elem, i) => {
                                     return (
-                                        <>
+                                        <React.Fragment key={i}>
                                         {elem}
                                         <br/>
-                                        </>
+                                        </React.Fragment>
                                     );
                                 })}
                                 </p>

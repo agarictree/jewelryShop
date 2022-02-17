@@ -46,6 +46,7 @@
   width: 60%;
   margin: 0 auto;
   position: relative;
+  background-color: inherit;
 }
 
 @media screen and (max-width: 1000px) {
@@ -98,6 +99,7 @@
 
 .buyerInfo button {
   margin-top: 10px;
+  padding: 10px;
 }
 
 .responce {
@@ -106,7 +108,8 @@
   height: 250px;
   top: calc(50% - 125px);
   left: calc(50% - 250px);
-  background-color: inherit;
+  background-color: aliceblue;
+  color: dimgray;
   border: 1px solid grey;
   padding: 10px;
   z-index: 100;
@@ -133,4 +136,11 @@
 
 .label_text::after {
   content: "*";
+}
+
+.shopping-card_clear {
+  padding: 10px 5px;
+  text-align: right;
+  font-weight: 700;
+  cursor: pointer;
 }

@@ -5,16 +5,18 @@ export default function AddToCardButton(props) {
     console.log(store);
 
     function addToCardHandler(e) {
-        // let card = document.querySelector(".shopping-card");
         let shoppingCard = props.store.store.card;
         let count = document.querySelector("#count");
-        
-        let arr = [];
+        let tooltip = document.querySelector(".shop_addToCard-tooltip");
         let itemCopy = props.item;
-        itemCopy.count = count.value;
-        arr.push(itemCopy);
+        itemCopy.count = +count.value;
+
         store.addToCard(itemCopy);
+      
         localStorage.setItem("added", JSON.stringify(shoppingCard));
+        
+        tooltip.classList.remove("transparent");
+        setTimeout(() => tooltip.classList.add("transparent"), 1500);
     }
     return (
         <section className="shop_addToCard">
@@ -27,6 +29,9 @@ export default function AddToCardButton(props) {
                     props.item.inStock ? "Добавить в корзину" : "Изготовить на заказ"
                 }
             </button>
+            <div className="shop_addToCard-tooltip transparent">
+                Успешно добавлено!
+            </div>
         </section>
     )
 }

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import { nameChangeHandler } from "./validity.js";
 import axios from "axios";
 
 export default function ShoppingCard(props) {
-    
-    let items = props.store.store.card;
 
     let products = JSON.parse(localStorage.getItem("added"));
     let [state, setState] = useState(products);
@@ -14,7 +13,6 @@ export default function ShoppingCard(props) {
 
         let finded = products.find(elem => elem.text == item);
 
-        console.log("finded:", finded, "state:", state);
         if(finded.count == 1) {
             if(state.length == 1 ) {
                 localStorage.setItem("added", JSON.stringify([]));
@@ -26,9 +24,7 @@ export default function ShoppingCard(props) {
             }
         } else {
             finded.count -= 1;
-            let index = products.indexOf(finded);
             
-            console.log(products);
             localStorage.setItem("added", JSON.stringify(products));
             setState(products);
         }
@@ -58,7 +54,6 @@ export default function ShoppingCard(props) {
                 "Content-type": "application/json; charset=UTF-8"
             }
         }).then(res => {
-            let responce = res.data;
             let status = res.status;
 
             if(status == 201) {
@@ -66,44 +61,20 @@ export default function ShoppingCard(props) {
                 para.textContent = "Заказ успешно оформлен. Ждите подтверждение оплаты на электронный адрес";
                 setTimeout(() => {
                     block.classList.add("hide");
-                    localStorage.removeItem("added");
+                    localStorage.setItem("added", JSON.stringify([]));
                     setState([]);
                 }, 2000);
             }
         });
     }
-
-    function testField(regExp, str) {
-        return regExp.test(str);
-    }
-    let obj = {
-        firstname: /^[А-Яа-яёЁйЙъЪьЬ]{2,}$/,
-        lastname: /^[А-Яа-яёЁйЙъЪьЬ]{2,}$/,
-        city: /^[А-Яа-яёЁйЙъЪьЬ\.\-\s]$/,
-        adress: /^[А-Яа-яёЁйЙъЪьЬ\s\-\.,0-9]{5,}$/,
-        zip: /^[0-9]{6}$/, 
-        email: /^[^\W_\d][a-z0-9-._]{1,20}@[a-z0-9]{1,10}\.[a-z]{2,10}$/
-    }
-    function nameChangeHandler(e) {
-        let label = e.target.previousElementSibling;
-        let span = label.querySelector(".invalid_text");
-        let regExp = obj[e.target.id];
-        let isValid = testField(regExp, e.target.value);
-
-        console.log(isValid);
-        if(!isValid) {
-            span.textContent = "Поле заполнено неверно.";
-            e.target.classList.add("invalid");
-        } else {
-            span.textContent = '';
-            e.target.classList.remove("invalid");
-        }
-        
-    }
     function onInvalidNameHandler(e) {
         if(!e.target.value) {
             e.target.setCustomValidity("Это поле обязательно для заполнения.")
         }
+    }
+    function clearCardHandler() {
+        setState([]);
+        localStorage.setItem("added", JSON.stringify([]));
     }
     return (
         <main>
@@ -126,7 +97,7 @@ export default function ShoppingCard(props) {
                 )
             })
             }
-            
+            <section className="shopping-card_clear" onClick={clearCardHandler}>Очистить корзину</section>
             <form action="/" className="buyerInfo" onSubmit={sendOrderHandler}>
 
                     <h4>Ваши данные</h4>
