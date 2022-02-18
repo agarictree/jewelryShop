@@ -9,9 +9,10 @@ export default function ShoppingCard(props) {
     let form = useRef(null);
     let statusBlock = useRef(null);
     let statusText = useRef(null);
+    let container = useRef(null);
 
     function deleteItemHandler(e) {
-        let item = form.current.closest(".shopping-card_info").dataset.product;
+        let item = container.current.dataset.product;
         let finded = products.find(elem => elem.text == item);
 
         if(finded.count == 1) {
@@ -47,7 +48,8 @@ export default function ShoppingCard(props) {
         axios.post("https://jsonplaceholder.typicode.com/posts", {
             data: order,
             headers: {
-                "Content-type": "application/json; charset=UTF-8"
+                "Content-type": "application/json; charset=UTF-8",
+                "Permissions-Policy": "interest-cohort=()"
             }
         }).then(res => {
             let status = res.status;
@@ -81,7 +83,7 @@ export default function ShoppingCard(props) {
                 state.map((elem, i) => {
                 return (
                     <React.Fragment key={i}>
-                    <section className="shopping-card_info" data-product = {elem.text}>
+                    <section className="shopping-card_info" data-product = {elem.text} ref={container}>
                         <div className="shopping-card_info_span">
                         <img src={elem.img} alt="purchase image" className="shopping-card_info__img" width="100px" height="auto"/>
                         <p>{`${elem.text} x ${elem.count}`}</p>

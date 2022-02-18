@@ -20,7 +20,8 @@ function submitMessageHandler(e) {
     axios.post("https://jsonplaceholder.typicode.com/posts", {
             data: data,
             headers: {
-                "Content-type": "multipart/form-data; charset=UTF-8"
+                "Content-type": "multipart/form-data; charset=UTF-8",
+                "Permissions-Policy": "interest-cohort=()"
             }
         }).then(result => {
             if(result.status >= 200 && result.status < 300) {

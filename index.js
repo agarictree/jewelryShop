@@ -8,6 +8,10 @@ import reducer from "./redux/reducer";
 import { Connected } from "./redux/reduxComponent";
 import content from "./content";
 
+if(localStorage.getItem("theme") == null){
+    localStorage.setItem("theme", "dark");
+} 
+
 let store = createStore(reducer, {show: content, card: []});
 
 function Index() {
