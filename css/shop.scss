@@ -25,10 +25,6 @@
         z-index: -100;
      }
      
-     .openMenuHead:first-child:after {
-        border-top-color: transparent;
-        border-bottom-color: darkolivegreen;
-    }
 
     aside {
         grid-area: aside;
@@ -38,24 +34,16 @@
         background-color: inherit;
         @media screen and (max-width: 1000px) {
             padding-left: 0;
-            position: sticky;
+            position:sticky;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 50;
         }
-        h4 {
-            padding: 10px 0;
-            &:first-child {
-                position: relative;
-                z-index: 50;
-                background-color: inherit;
-            }
-            @media screen and (max-width: 1000px) {
-                margin: 7px 0;
-                padding: 7px 0;
-            }        
-            &:first-child::after {
+        .shop_container-sort {
+            z-index: 100;
+            background-color: inherit;
+            &::after {
                 @media screen and (max-width: 1000px) {
                     content: "";
                     border: 5px solid transparent;
@@ -64,14 +52,35 @@
                     margin-left: 10px;
                     transition: 500ms ease;
                  }
-                }
+            }
+            
+        }
+        .shop_container-sort--addArrow {
+            &::after {
+                @media screen and (max-width: 1000px) {
+                    content: "";
+                    border: 5px solid transparent;
+                    border-top-color: transparent;
+                    border-bottom-color: darkolivegreen;
+                    display: inline-block;
+                    margin-left: 10px;
+                    transition: 500ms ease;
+                 }
+            }
+        }
+        h4 {
+            padding: 10px 0;
+            @media screen and (max-width: 1000px) {
+                margin: 7px 0;
+                padding: 7px 0;
+            }        
             
         }
         form {
             transition: 500ms linear;
                 @media screen and (max-width: 1000px) {
                     position: absolute;
-                    top: 0;
+                    top: 100%;
                     width: 100%;
                     background-color: inherit;
                     label {
@@ -103,13 +112,18 @@
         margin-bottom: 10px;
         text-align: center;
         background-color: DarkSlateBlue;
-        vertical-align: middle;
         @media screen and (max-width: 1000px) {
             padding: 3px;
             margin-bottom: 5px;
             font-size: 2vw;
             margin-left: 5px;
             flex: 1;
+        }
+        label {
+            align-self: center;
+        }
+        input[type="radio"] {
+            align-self: center;
         }
     }
 }
@@ -212,20 +226,24 @@ table {
     0% {
         top: -1000%;
         visibility: hidden;
+        opacity: 0;
     }
     100% {
         top: 100%;
         visibility: visible;
+        opacity: 1;
     }
 }
 @keyframes closedMenu {
     0% {
         top: 100%;
         visibility: visible;
+        opacity: 1;
     }
     100% {
         top: -1000%;
         visibility: hidden;
+        opacity: 0;
     }
 }
 

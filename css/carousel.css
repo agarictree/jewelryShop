@@ -46,11 +46,27 @@
   margin-right: 10px;
   background-color: transparent;
   border: 1px solid darkolivegreen;
-  flex: 0 0 auto;
+  flex: 0 0 20%;
 }
 
 .carousel-container #carousel .card:last-of-type {
   margin: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .carousel-container #carousel .card {
+    flex: 0 0 30%;
+  }
+  .carousel-container #carousel .card h4 {
+    margin: 7px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .carousel-container #carousel .card button a {
+    font-size: 1rem;
+    padding: 5px 2px;
+  }
 }
 
 .carousel-container #carousel .card img {

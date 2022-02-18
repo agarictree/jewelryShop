@@ -31,11 +31,6 @@
   z-index: -100;
 }
 
-.shop_container .openMenuHead:first-child:after {
-  border-top-color: transparent;
-  border-bottom-color: darkolivegreen;
-}
-
 .shop_container aside {
   grid-area: aside;
   padding: 0;
@@ -55,31 +50,42 @@
   }
 }
 
-.shop_container aside h4 {
-  padding: 10px 0;
-}
-
-.shop_container aside h4:first-child {
-  position: relative;
-  z-index: 50;
+.shop_container aside .shop_container-sort {
+  z-index: 100;
   background-color: inherit;
 }
 
 @media screen and (max-width: 1000px) {
-  .shop_container aside h4 {
-    margin: 7px 0;
-    padding: 7px 0;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .shop_container aside h4:first-child::after {
+  .shop_container aside .shop_container-sort::after {
     content: "";
     border: 5px solid transparent;
     border-top-color: darkolivegreen;
     display: inline-block;
     margin-left: 10px;
     transition: 500ms ease;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside .shop_container-sort--addArrow::after {
+    content: "";
+    border: 5px solid transparent;
+    border-top-color: transparent;
+    border-bottom-color: darkolivegreen;
+    display: inline-block;
+    margin-left: 10px;
+    transition: 500ms ease;
+  }
+}
+
+.shop_container aside h4 {
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside h4 {
+    margin: 7px 0;
+    padding: 7px 0;
   }
 }
 
@@ -90,7 +96,7 @@
 @media screen and (max-width: 1000px) {
   .shop_container aside form {
     position: absolute;
-    top: 0;
+    top: 100%;
     width: 100%;
     background-color: inherit;
   }
@@ -126,7 +132,6 @@
   margin-bottom: 10px;
   text-align: center;
   background-color: DarkSlateBlue;
-  vertical-align: middle;
 }
 
 @media screen and (max-width: 1000px) {
@@ -137,6 +142,14 @@
     margin-left: 5px;
     flex: 1;
   }
+}
+
+.shop_container .input label {
+  align-self: center;
+}
+
+.shop_container .input input[type="radio"] {
+  align-self: center;
 }
 
 .shop_vitrina {
@@ -267,10 +280,12 @@ table th, table td, table tr {
   0% {
     top: -1000%;
     visibility: hidden;
+    opacity: 0;
   }
   100% {
     top: 100%;
     visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -278,10 +293,12 @@ table th, table td, table tr {
   0% {
     top: 100%;
     visibility: visible;
+    opacity: 1;
   }
   100% {
     top: -1000%;
     visibility: hidden;
+    opacity: 0;
   }
 }
 

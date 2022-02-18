@@ -1,33 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import ShopComponent from "./shopComponent";
 
 export default function Shop(props) {
     let store = props.store;
     let [isMedia, setState] = useState(false);
 
-    // useEffect(() => {
-    //     if(document.body.offsetWidth < 1000) {
-    //         setState(true);
-    //     }
-    // }, []);
+    let sort = useRef(null);
+    let sortHead = useRef(null);
 
     function chooseItems(e) {
         let prop = e.target.value;
         if(prop == "clay") {
-            // getState(store);
             store.sortByMaterials("clay");
         }
         if(prop == "tin") {
-            // getState(store);
             store.sortByMaterials("tin");
         }
         if(prop == "inStock") {
             store.sortByStock();
         }
 
-        let menu = document.querySelector("aside > form");
+        // let sort.current = document.querySelector("aside > form");
         if(!isMedia) {
-            menu.classList.remove("openMenu");
+            sort.current.classList.remove("openMenu");
             setTimeout(() => setState(true), 300);
         }
     }
@@ -36,9 +31,9 @@ export default function Shop(props) {
         let prop = e.target.value;
         store.sortByType(prop);
 
-        let menu = document.querySelector("aside > form");
+        // let menu = document.querySelector("aside > form");
         if(!isMedia) {
-            menu.classList.remove("openMenu");
+            sort.current.classList.remove("openMenu");
             setTimeout(() => setState(true), 300);
         }
     }
@@ -46,22 +41,21 @@ export default function Shop(props) {
         e.preventDefault();
         store.getAllItems();
 
-        let menu = document.querySelector("aside > form");
+        // let menu = document.querySelector("aside > form");
         if(!isMedia) {
-            menu.classList.remove("openMenu");
+            sort.current.classList.remove("openMenu");
             setTimeout(() => setState(true), 300);
         }
     }
     function sortHandler(e) {
-        let form = e.target.nextElementSibling;
-        
-
-        if(form.classList.contains("openMenu")) {
-            form.classList.remove("openMenu");
-            form.classList.add("closedMenu");
+        if(sort.current.classList.contains("openMenu")) {
+            sort.current.classList.remove("openMenu");
+            sort.current.classList.add("closedMenu");
+            sortHead.current.classList.remove("shop_container-sort--addArrow");
         } else {
-            form.classList.remove("closedMenu");
-            form.classList.add("openMenu");
+            sortHead.current.classList.add("shop_container-sort--addArrow");
+            sort.current.classList.remove("closedMenu");
+            sort.current.classList.add("openMenu");
         }
         
     }
@@ -71,8 +65,8 @@ export default function Shop(props) {
         <div className="shop_container">
             
             <aside>
-            <h4 onClick={sortHandler}>Сортировать по:</h4>
-                <form action="/">
+            <h4 ref={sortHead} className="shop_container-sort" onClick={sortHandler}>Сортировать по:</h4>
+                <form action="/" ref={sort}>
                 
                 <h4>Тип украшения</h4>
 

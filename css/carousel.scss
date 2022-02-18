@@ -42,7 +42,21 @@
             }
             background-color: transparent;
             border: 1px solid darkolivegreen;
-            flex: 0 0 auto;
+            flex: 0 0 20%;
+            @media screen and (max-width:1000px) {
+                flex: 0 0 30%;
+                h4 {
+                    margin: 7px;
+                }
+            }
+            button {
+                @media screen and (max-width:1000px) {
+                    a {
+                        font-size: 1rem;
+                        padding: 5px 2px;
+                    }
+                }
+            }
             img {
                 max-width: 100%;
                 height: auto;

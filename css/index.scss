@@ -117,6 +117,7 @@ button {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
     &:disabled {
         background-color: darken($color: teal, $amount: 20);
         color: gray;

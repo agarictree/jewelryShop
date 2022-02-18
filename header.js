@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef} from "react";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
 
+    let menu = useRef(null);
+    let changeTheme = useRef(null);
+    let close = useRef(null);
 
     let shoppingCard = props.store.store.card;
     let storage = localStorage.getItem("added");
@@ -10,7 +13,6 @@ export default function Header(props) {
         localStorage.setItem("added", JSON.stringify(shoppingCard));
     }
 
-    console.log(JSON.parse(localStorage.getItem("added")).length);
     function changeThemeHandler(e) {
         let savedTheme = localStorage.getItem("theme");
 
@@ -25,20 +27,18 @@ export default function Header(props) {
         }
         
         if(document.body.classList.contains("light")) {
-            e.target.classList.add("change_theme--light");
+            changeTheme.current.classList.add("change_theme--light");
         } else {
-            e.target.classList.remove("change_theme--light");
+            changeTheme.current.classList.remove("change_theme--light");
         }
     }
     function onCloseHandler(e) {
-        let menu = document.querySelector(".menu");
-        menu.classList.toggle("isOpen");
-        e.target.classList.toggle("change_theme-close--open");
+        menu.current.classList.toggle("isOpen");
+        close.current.classList.toggle("change_theme-close--open");
     }
 
     function closeMenu() {
-        let menu = document.querySelector(".menu");
-        menu.classList.remove("isOpen");
+        menu.current.classList.remove("isOpen");
     }
     return (
         <header>
@@ -47,9 +47,9 @@ export default function Header(props) {
                 <img src="./img/logo2_170.png" alt="head" className="logo_text" />
         </div>
         <nav>
-            <div title="change theme" className={localStorage.getItem("theme") == "dark" ? "change_theme" : "change_theme change_theme--light"} data-theme="dark" onClick={changeThemeHandler}/>
-            <div className="change_theme-close" onClick={onCloseHandler}></div>
-            <ul className="menu">
+            <div ref={changeTheme} title="change theme" className={localStorage.getItem("theme") == "dark" ? "change_theme" : "change_theme change_theme--light"} data-theme="dark" onClick={changeThemeHandler}/>
+            <div ref={close} className="change_theme-close" onClick={onCloseHandler}></div>
+            <ul className="menu" ref={menu}>
                 <li><Link to="/" onClick={closeMenu}>Главная</Link></li>
                 <li><Link to="/shop" onClick={closeMenu}>Витрина</Link></li>
                 <li><Link to="/shipping" onClick={closeMenu}>Доставка и оплата</Link></li>

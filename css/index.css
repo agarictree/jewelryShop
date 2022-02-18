@@ -260,11 +260,27 @@ nav .change_theme-close--open {
   margin-right: 10px;
   background-color: transparent;
   border: 1px solid darkolivegreen;
-  flex: 0 0 auto;
+  flex: 0 0 20%;
 }
 
 .carousel-container #carousel .card:last-of-type {
   margin: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .carousel-container #carousel .card {
+    flex: 0 0 30%;
+  }
+  .carousel-container #carousel .card h4 {
+    margin: 7px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .carousel-container #carousel .card button a {
+    font-size: 1rem;
+    padding: 5px 2px;
+  }
 }
 
 .carousel-container #carousel .card img {
@@ -488,11 +504,6 @@ footer .footer_container .footer_icons a img {
   z-index: -100;
 }
 
-.shop_container .openMenuHead:first-child:after {
-  border-top-color: transparent;
-  border-bottom-color: darkolivegreen;
-}
-
 .shop_container aside {
   grid-area: aside;
   padding: 0;
@@ -512,31 +523,42 @@ footer .footer_container .footer_icons a img {
   }
 }
 
-.shop_container aside h4 {
-  padding: 10px 0;
-}
-
-.shop_container aside h4:first-child {
-  position: relative;
-  z-index: 50;
+.shop_container aside .shop_container-sort {
+  z-index: 100;
   background-color: inherit;
 }
 
 @media screen and (max-width: 1000px) {
-  .shop_container aside h4 {
-    margin: 7px 0;
-    padding: 7px 0;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .shop_container aside h4:first-child::after {
+  .shop_container aside .shop_container-sort::after {
     content: "";
     border: 5px solid transparent;
     border-top-color: darkolivegreen;
     display: inline-block;
     margin-left: 10px;
     transition: 500ms ease;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside .shop_container-sort--addArrow::after {
+    content: "";
+    border: 5px solid transparent;
+    border-top-color: transparent;
+    border-bottom-color: darkolivegreen;
+    display: inline-block;
+    margin-left: 10px;
+    transition: 500ms ease;
+  }
+}
+
+.shop_container aside h4 {
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_container aside h4 {
+    margin: 7px 0;
+    padding: 7px 0;
   }
 }
 
@@ -547,7 +569,7 @@ footer .footer_container .footer_icons a img {
 @media screen and (max-width: 1000px) {
   .shop_container aside form {
     position: absolute;
-    top: 0;
+    top: 100%;
     width: 100%;
     background-color: inherit;
   }
@@ -583,7 +605,6 @@ footer .footer_container .footer_icons a img {
   margin-bottom: 10px;
   text-align: center;
   background-color: DarkSlateBlue;
-  vertical-align: middle;
 }
 
 @media screen and (max-width: 1000px) {
@@ -594,6 +615,14 @@ footer .footer_container .footer_icons a img {
     margin-left: 5px;
     flex: 1;
   }
+}
+
+.shop_container .input label {
+  align-self: center;
+}
+
+.shop_container .input input[type="radio"] {
+  align-self: center;
 }
 
 .shop_vitrina {
@@ -724,10 +753,12 @@ table th, table td, table tr {
   0% {
     top: -1000%;
     visibility: hidden;
+    opacity: 0;
   }
   100% {
     top: 100%;
     visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -735,10 +766,12 @@ table th, table td, table tr {
   0% {
     top: 100%;
     visibility: visible;
+    opacity: 1;
   }
   100% {
     top: -1000%;
     visibility: hidden;
+    opacity: 0;
   }
 }
 
@@ -1230,6 +1263,7 @@ button {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 button:disabled {

@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useRoutes} from "react-router-dom";
 import AddToCardButton from "./addToCardButton.js";
 import content from "./content.js";
 
 
 function Page(props) {
+    let general = useRef(null);
 
     function galleryHandler(e) {
-        let general = document.querySelector(".item_page_gallery_general > img");
-        general.src = e.target.src;
+        general.current.src = e.target.src;
     }
     
     return (
@@ -17,7 +17,7 @@ function Page(props) {
                 <div className="item_page">
                 <div className="item_page_gallery">
                 <div className="item_page_gallery_general">
-                    <img src={`${props.info.images}/${props.info.pack[0]}`} alt="general image" />
+                <img ref={general} src={`${props.info.images}/${props.info.pack[0]}`} alt="general image" />
                 </div>
                 <div className="item_page_gallery_links">
                     {props.info.pack.map((elem, i) => {
@@ -64,7 +64,7 @@ function Page(props) {
                         <tfoot>
                         <tr>
                         <td colSpan={3}>
-                        Наличие: <span className="shop_InStock">{
+                        Статус: <span className="shop_InStock">{
                             props.info.inStock ? "В наличии" : "Отстутствует"
                         }</span>
                         </td>

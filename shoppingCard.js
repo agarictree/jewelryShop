@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { nameChangeHandler } from "./validity.js";
 import axios from "axios";
 
@@ -6,11 +6,12 @@ export default function ShoppingCard(props) {
 
     let products = JSON.parse(localStorage.getItem("added"));
     let [state, setState] = useState(products);
+    let form = useRef(null);
+    let statusBlock = useRef(null);
+    let statusText = useRef(null);
 
     function deleteItemHandler(e) {
-        
-        let item = e.target.closest(".shopping-card_info").dataset.product;
-
+        let item = form.current.closest(".shopping-card_info").dataset.product;
         let finded = products.find(elem => elem.text == item);
 
         if(finded.count == 1) {
@@ -33,8 +34,7 @@ export default function ShoppingCard(props) {
     
     function sendOrderHandler(e) {
         e.preventDefault();
-        let target = e.target;
-        let elements = target.elements;
+        let elements = form.current.elements;
         let order = {
             firstname: elements.firstname.value,
             lastname: elements.lastname.value,
@@ -43,10 +43,6 @@ export default function ShoppingCard(props) {
             zip: elements.zip.value,
             email: elements.email.value
         }
-        console.log(order);
-
-        let block = document.querySelector(".responce");
-        let para = block.firstElementChild;
 
         axios.post("https://jsonplaceholder.typicode.com/posts", {
             data: order,
@@ -57,10 +53,10 @@ export default function ShoppingCard(props) {
             let status = res.status;
 
             if(status == 201) {
-                block.classList.remove("hide");
-                para.textContent = "Заказ успешно оформлен. Ждите подтверждение оплаты на электронный адрес";
+                statusBlock.current.classList.remove("hide");
+                statusText.current.textContent = "Заказ успешно оформлен. Ждите подтверждение оплаты на электронный адрес";
                 setTimeout(() => {
-                    block.classList.add("hide");
+                    statusBlock.current.classList.add("hide");
                     localStorage.setItem("added", JSON.stringify([]));
                     setState([]);
                 }, 2000);
@@ -82,9 +78,9 @@ export default function ShoppingCard(props) {
 
         {
             state.length == 0 ? <p className="shopping-card_empty">Корзина покупок пуста.</p> : <section>{
-                state.map(elem => {
+                state.map((elem, i) => {
                 return (
-                    <>
+                    <React.Fragment key={i}>
                     <section className="shopping-card_info" data-product = {elem.text}>
                         <div className="shopping-card_info_span">
                         <img src={elem.img} alt="purchase image" className="shopping-card_info__img" width="100px" height="auto"/>
@@ -93,12 +89,12 @@ export default function ShoppingCard(props) {
 
                         <div className="shopping-card_delete" onClick={deleteItemHandler}></div>
                     </section>
-                    </>
+                    </React.Fragment>
                 )
             })
             }
             <section className="shopping-card_clear" onClick={clearCardHandler}>Очистить корзину</section>
-            <form action="/" className="buyerInfo" onSubmit={sendOrderHandler}>
+            <form ref={form} action="/" className="buyerInfo" onSubmit={sendOrderHandler}>
 
                     <h4>Ваши данные</h4>
 
@@ -131,8 +127,8 @@ export default function ShoppingCard(props) {
 
                     <button type="submit">Отправить</button>
                     </form>
-                    <section className="responce hide">
-                    <p></p>
+                    <section className="responce hide" ref={statusBlock}>
+                    <p ref={statusText}></p>
                     </section>
             </section>
         }

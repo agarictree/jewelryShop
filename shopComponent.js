@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function ShopComponent(props) {
     let store = props.store;
-    console.log(store);
     return (
         <>
             {store.show.map((item, i) => {

@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 
 import { textareaHandler, nameChangeHandler } from "./validity.js";
 
+export default function About() {
+    let form = useRef(null);
+    let success = useRef(null);
+
 function submitMessageHandler(e) {
+
     e.preventDefault();
-    let target = e.target;
-    let elements = target.elements;
-    let success = document.querySelector(".contact_form-success");
+    let elements = form.current.elements;
+    
     let data = {
         firstname: elements.firstname.value,
         email: elements.email.value,
@@ -19,16 +23,16 @@ function submitMessageHandler(e) {
                 "Content-type": "multipart/form-data; charset=UTF-8"
             }
         }).then(result => {
-            console.log(result);
             if(result.status >= 200 && result.status < 300) {
-                success.classList.remove("notVisible");
-                success.textContent = 'Сообщение успешно отправлено. Мы свяжемся с вами с течении 1-3 дней';
-                setTimeout(() => success.classList.add("notVisible"), 3000);
+                success.current.classList.remove("notVisible");
+                success.current.textContent = 'Сообщение успешно отправлено. Мы свяжемся с вами с течении 1-3 дней';
+                setTimeout(() => {
+                    form.current.reset();
+                    success.current.classList.add("notVisible");
+                }, 3000);
             }
         })
 }
-
-export default function About() {
     return (
         <main>
         <h1>О нас</h1>
@@ -85,8 +89,7 @@ export default function About() {
         </div>
         <div className="contact_form">
             <h3 className="contact_form-header">Связаться с нами</h3>
-            <form action="/" onSubmit={submitMessageHandler}>
-
+            <form action="/" onSubmit={submitMessageHandler} ref={form}>
 
             <div className="contact_form-input">
             <div>
@@ -107,7 +110,7 @@ export default function About() {
 
             <button type="submit">Отправить</button>
 
-            <div className="contact_form-success notVisible"></div>
+            <div ref={success} className="contact_form-success notVisible"></div>
             </form>
         </div>
         </section>

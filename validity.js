@@ -18,7 +18,6 @@ export function nameChangeHandler(e) {
 
     let button = e.target.closest("form").lastElementChild;
 
-    console.log(isValid);
     if(!isValid) {
         span.textContent = "Поле заполнено неверно.";
         e.target.classList.add("invalid");
