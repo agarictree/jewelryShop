@@ -253,7 +253,7 @@ nav .change_theme-close--open {
   transition: 500ms linear;
 }
 
-.carousel-container #carousel .card {
+.card {
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
@@ -266,42 +266,36 @@ nav .change_theme-close--open {
   flex: 0 0 20%;
 }
 
-.carousel-container #carousel .card:last-of-type {
+.card:last-of-type {
   margin: 0;
 }
 
+.card button {
+  width: 100%;
+}
+
+.card button a {
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+}
+
 @media screen and (max-width: 1000px) {
-  .carousel-container #carousel .card {
+  .card button a {
+    padding: 5px 0;
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
     flex: 0 0 30%;
   }
-  .carousel-container #carousel .card h4 {
-    margin: 7px;
-  }
 }
 
-@media screen and (max-width: 1000px) {
-  .carousel-container #carousel .card button a {
-    font-size: 1rem;
-    padding: 5px 2px;
-  }
-}
-
-.carousel-container #carousel .card img {
+.card img {
   max-width: 100%;
   height: auto;
-}
-
-.card_btn {
-  width: 100%;
-  font-weight: bold;
-  color: white;
-  display: block;
-}
-
-.card_btn a {
-  display: block;
-  width: 100%;
-  height: 100%;
 }
 
 .preroll {
@@ -329,7 +323,8 @@ nav .change_theme-close--open {
   line-height: 1.5em;
   text-align: center;
   color: #EBEBEB;
-  font-family: 'Cormorant Infant', serif;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 500;
   margin: 0;
   margin-bottom: 10px;
 }
@@ -337,6 +332,7 @@ nav .change_theme-close--open {
 @media screen and (max-width: 1000px) {
   .preroll .preroll_text p {
     font-size: 1.3rem;
+    line-height: 1.6rem;
   }
 }
 
@@ -368,7 +364,7 @@ footer {
 }
 
 footer p {
-  font-family: 'Cormorant Infant', serif;
+  font-family: 'Neucha', cursive;
   align-self: center;
   margin: 0;
 }
@@ -554,17 +550,6 @@ footer .footer_container .footer_icons a img {
   }
 }
 
-.shop_container aside h4 {
-  padding: 10px 0;
-}
-
-@media screen and (max-width: 1000px) {
-  .shop_container aside h4 {
-    margin: 7px 0;
-    padding: 7px 0;
-  }
-}
-
 .shop_container aside form {
   transition: 500ms linear;
 }
@@ -586,17 +571,6 @@ footer .footer_container .footer_icons a img {
     display: flex;
     flex-flow: row nowrap;
     justify-content: stretch;
-  }
-}
-
-.shop_container aside form button {
-  color: inherit;
-}
-
-@media screen and (max-width: 1000px) {
-  .shop_container aside form button {
-    background-color: transparent;
-    padding: 0;
   }
 }
 
@@ -622,6 +596,7 @@ footer .footer_container .footer_icons a img {
 
 .shop_container .input label {
   align-self: center;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .shop_container .input input[type="radio"] {
@@ -635,12 +610,18 @@ footer .footer_container .footer_icons a img {
   justify-content: space-around;
 }
 
+@media screen and (max-width: 680px) {
+  .shop_vitrina {
+    justify-content: center;
+  }
+}
+
 .shop_vitrina .card {
-  align-self: flex-start;
+  align-self: stretch;
   max-width: 30%;
-  padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid darkolivegreen;
+  box-sizing: border-box;
+  flex: 1 1 30%;
 }
 
 .shop_vitrina .card img {
@@ -721,7 +702,7 @@ footer .footer_container .footer_icons a img {
 
 .shop_item_page .item_page_gallery .item_page_gallery_links {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   width: 100%;
 }
@@ -729,8 +710,14 @@ footer .footer_container .footer_icons a img {
 .shop_item_page .item_page_gallery .item_page_gallery_links img {
   cursor: pointer;
   padding: 5px;
-  width: 20%;
-  flex: 1 0 20%;
+  max-width: 20%;
+  flex: 0 0 20%;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page_gallery .item_page_gallery_links img {
+    max-width: 17%;
+  }
 }
 
 .shop_item_page .item_page_gallery .item_page_gallery_links img:hover {
@@ -800,6 +787,12 @@ table th, table td, table tr {
 
 .shop_addToCard .shop_addToCard-input input {
   padding: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_addToCard .shop_addToCard-input input {
+    padding: 5px;
+  }
 }
 
 .shop_addToCard-tooltip {
@@ -985,6 +978,19 @@ table th, table td, table tr {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 700px) {
+  .shipping_container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .shipping_container p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+}
+
 .shipping_services {
   display: flex;
   justify-content: space-around;
@@ -992,6 +998,15 @@ table th, table td, table tr {
 
 .shipping_services-block {
   max-width: 30%;
+  border: 1px solid dimgray;
+  padding: 6px;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 700px) {
+  .shipping_services-block h4 {
+    margin: 5px;
+  }
 }
 
 .shipping_services-block img {
@@ -1002,6 +1017,13 @@ table th, table td, table tr {
   line-height: 1.3rem;
 }
 
+@media screen and (max-width: 700px) {
+  .shipping_services-block p {
+    text-align: justify;
+    margin: 5px 0;
+  }
+}
+
 p {
   text-align: center;
 }
@@ -1009,6 +1031,19 @@ p {
 .about_container {
   max-width: 60%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 700px) {
+  .about_container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .about_container p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
 }
 
 .yulekottur_about {
@@ -1027,6 +1062,12 @@ p {
   padding: 10px 0;
   width: 100%;
   font-size: 18px;
+}
+
+@media screen and (max-width: 700px) {
+  .recommedations_list li {
+    padding: 6px;
+  }
 }
 
 .recommedations_list li:before {
@@ -1062,6 +1103,12 @@ p {
   background-size: cover;
   background-position: center center;
   padding: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .contact_form {
+    max-width: 100%;
+  }
 }
 
 .contact_form .contact_form-header {
@@ -1130,11 +1177,13 @@ p {
   transition: 500ms linear;
   text-align: center;
   padding: 10px 5px;
+  opacity: 1;
 }
 
 .notVisible {
   visibility: hidden;
   transition: 300ms linear;
+  opacity: 0;
 }
 
 html {
@@ -1175,6 +1224,7 @@ main {
 p {
   font-size: 1.1rem;
   line-height: 2.5rem;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 a {
@@ -1184,6 +1234,7 @@ a {
 h1 {
   color: #EBEBEB;
   text-align: center;
+  font-family: 'Viaoda Libre', cursive;
 }
 
 h2 {
@@ -1247,12 +1298,20 @@ h2 .h2-text::after {
 
 h3 {
   color: #EBEBEB;
+  font-family: 'Viaoda Libre', cursive;
 }
 
 h4 {
   text-align: center;
   color: #EBEBEB;
   font-family: 'Viaoda Libre', cursive;
+  margin: 7px 0;
+}
+
+@media screen and (max-width: 650px) {
+  h4 {
+    font-size: 0.9rem;
+  }
 }
 
 button {
@@ -1280,13 +1339,21 @@ button:active {
 }
 
 button a {
-  font-family: 'Cormorant Infant', serif;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 400;
   color: #EBEBEB;
   text-decoration: none;
   font-size: 1.25rem;
   width: 100%;
   z-index: 10;
   padding: 10px;
+}
+
+@media screen and (max-width: 680px) {
+  button a {
+    max-width: 100%;
+    padding: 5px 0;
+  }
 }
 
 button:hover {
@@ -1333,6 +1400,18 @@ button:hover::before {
 .light {
   background-color: #EBEBEB;
   color: #151515;
+}
+
+.light .preroll {
+  background-image: url("../img/preroll_light.jpg");
+}
+
+.light .preroll .preroll_text {
+  background-color: rgba(235, 235, 235, 0.6);
+}
+
+.light .preroll .preroll_text p {
+  color: #0E0E0E;
 }
 
 .light p {
