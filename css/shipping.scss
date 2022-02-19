@@ -1,6 +1,15 @@
 .shipping_container {
     max-width: 60%;
     margin: 0 auto;
+    @media screen and (max-width: 700px) {
+        max-width: 100%;
+    }
+    p {
+        @media screen and (max-width: 700px) {
+            font-size: 1rem;
+            line-height: 1.4rem;
+        }
+    }
 }
 .shipping_services {
     display: flex;
@@ -8,11 +17,23 @@
 }
 .shipping_services-block{
     max-width: 30%;
+    border: 1px solid dimgray;
+    padding: 6px;
+    margin-bottom: 5px;
+    h4 {
+        @media screen and (max-width: 700px) {
+            margin: 5px;
+        }
+    }
     img {
         max-width: 100%;
     }
     p {
         line-height: 1.3rem;
+        @media screen and (max-width: 700px) {
+            text-align: justify;
+            margin: 5px 0;
+        }
     }
 }
 p {

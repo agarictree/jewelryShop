@@ -41,7 +41,7 @@ function Page(props) {
                             <th>Декоративные элементы</th>
                         </tr>
                         <tr>
-                            <td>{props.info.type}</td>
+                            <td><p>{props.info.type}</p></td>
                             <td>
                                 {props.info.materialsRU.map((elem, i) => {
                                     return <p key={i}>{elem}</p>
@@ -64,9 +64,9 @@ function Page(props) {
                         <tfoot>
                         <tr>
                         <td colSpan={3}>
-                        Статус: <span className="shop_InStock">{
+                        <p>Статус: <span className="shop_InStock">{
                             props.info.inStock ? "В наличии" : "Отстутствует"
-                        }</span>
+                        }</span></p>
                         </td>
                         </tr>
                     </tfoot>

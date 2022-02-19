@@ -3,6 +3,19 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 700px) {
+  .about_container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .about_container p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+}
+
 .yulekottur_about {
   display: block;
   margin: 0 auto;
@@ -19,6 +32,12 @@
   padding: 10px 0;
   width: 100%;
   font-size: 18px;
+}
+
+@media screen and (max-width: 700px) {
+  .recommedations_list li {
+    padding: 6px;
+  }
 }
 
 .recommedations_list li:before {
@@ -54,6 +73,12 @@
   background-size: cover;
   background-position: center center;
   padding: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .contact_form {
+    max-width: 100%;
+  }
 }
 
 .contact_form .contact_form-header {
@@ -122,9 +147,11 @@
   transition: 500ms linear;
   text-align: center;
   padding: 10px 5px;
+  opacity: 1;
 }
 
 .notVisible {
   visibility: hidden;
   transition: 300ms linear;
+  opacity: 0;
 }

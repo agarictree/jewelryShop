@@ -1,6 +1,15 @@
 .about_container {
     max-width: 60%;
     margin: 0 auto;
+    @media screen and (max-width: 700px) {
+        max-width: 100%;
+    }
+    p {
+        @media screen and (max-width: 700px) {
+            font-size: 1rem;
+            line-height: 1.4rem;
+        }
+    }
 }
 .yulekottur_about {
     display: block;
@@ -15,6 +24,9 @@
         padding: 10px 0;
         width: 100%;
         font-size: 18px;
+            @media screen and (max-width: 700px) {
+                padding: 6px;
+            }
         &:before {
             content: "";
             width: 20px;
@@ -47,6 +59,9 @@
     background-size: cover;
     background-position: center center;
     padding: 10px;
+    @media screen and (max-width: 700px) {
+        max-width: 100%;
+    }
     .contact_form-header {
         text-transform: uppercase;
         color: white;
@@ -105,8 +120,10 @@
     transition: 500ms linear;
     text-align: center;
     padding: 10px 5px;
+    opacity: 1;
 }
 .notVisible {
     visibility: hidden;
     transition: 300ms linear;
+    opacity: 0;
 }

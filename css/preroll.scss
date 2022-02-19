@@ -20,11 +20,13 @@
             line-height: 1.5em;
             text-align: center;
             color: #EBEBEB;
-            font-family: 'Cormorant Infant', serif;
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-weight: 500;
             margin: 0;
             margin-bottom: 10px;
             @media screen and (max-width: 1000px) {
                 font-size: 1.3rem;
+                line-height: 1.6rem;
             }
         }
         .head_btn {

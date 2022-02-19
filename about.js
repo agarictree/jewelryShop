@@ -13,7 +13,7 @@ function submitMessageHandler(e) {
     let elements = form.current.elements;
     
     let data = {
-        firstname: elements.firstname.value,
+        fullname: elements.name.value,
         email: elements.email.value,
         message: elements.message.value
     }
@@ -94,8 +94,8 @@ function submitMessageHandler(e) {
 
             <div className="contact_form-input">
             <div>
-            <label htmlFor="name"><span className="input_text">Ваше имя:</span><span className="invalid_text"></span></label>
-            <input type="text" name="name" id="firstname" required onInput={nameChangeHandler} placeholder="Имя"/>
+            <label htmlFor="fullname"><span className="input_text">Ваше имя:</span><span className="invalid_text"></span></label>
+            <input type="text" name="name" id="fullname" required onInput={nameChangeHandler} placeholder="Имя"/>
             </div>
 
             <div>

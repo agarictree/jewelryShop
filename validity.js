@@ -8,7 +8,8 @@ let obj = {
     adress: /^[А-Яа-яёЁйЙъЪьЬ\s\-\.,0-9]{5,}$/,
     zip: /^[0-9]{6}$/, 
     email: /^[^\W_\d][a-z0-9-._]{1,20}@[a-z0-9]{1,10}\.[a-z]{2,10}$/,
-    message: /.{5,}/
+    message: /.{5,}/,
+    fullname: /^[А-Яа-яёЁйЙъЪьЬ\s\.\-]{2,30}$/
 }
 export function nameChangeHandler(e) {
     let label = e.target.previousElementSibling;

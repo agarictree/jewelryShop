@@ -78,17 +78,6 @@
   }
 }
 
-.shop_container aside h4 {
-  padding: 10px 0;
-}
-
-@media screen and (max-width: 1000px) {
-  .shop_container aside h4 {
-    margin: 7px 0;
-    padding: 7px 0;
-  }
-}
-
 .shop_container aside form {
   transition: 500ms linear;
 }
@@ -110,17 +99,6 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: stretch;
-  }
-}
-
-.shop_container aside form button {
-  color: inherit;
-}
-
-@media screen and (max-width: 1000px) {
-  .shop_container aside form button {
-    background-color: transparent;
-    padding: 0;
   }
 }
 
@@ -146,6 +124,7 @@
 
 .shop_container .input label {
   align-self: center;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .shop_container .input input[type="radio"] {
@@ -159,12 +138,18 @@
   justify-content: space-around;
 }
 
+@media screen and (max-width: 680px) {
+  .shop_vitrina {
+    justify-content: center;
+  }
+}
+
 .shop_vitrina .card {
-  align-self: flex-start;
+  align-self: stretch;
   max-width: 30%;
-  padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid darkolivegreen;
+  box-sizing: border-box;
+  flex: 1 1 30%;
 }
 
 .shop_vitrina .card img {
@@ -245,7 +230,7 @@
 
 .shop_item_page .item_page_gallery .item_page_gallery_links {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   width: 100%;
 }
@@ -253,8 +238,14 @@
 .shop_item_page .item_page_gallery .item_page_gallery_links img {
   cursor: pointer;
   padding: 5px;
-  width: 20%;
-  flex: 1 0 20%;
+  max-width: 20%;
+  flex: 0 0 20%;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_item_page .item_page_gallery .item_page_gallery_links img {
+    max-width: 17%;
+  }
 }
 
 .shop_item_page .item_page_gallery .item_page_gallery_links img:hover {
@@ -324,6 +315,12 @@ table th, table td, table tr {
 
 .shop_addToCard .shop_addToCard-input input {
   padding: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop_addToCard .shop_addToCard-input input {
+    padding: 5px;
+  }
 }
 
 .shop_addToCard-tooltip {

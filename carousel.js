@@ -18,19 +18,15 @@ function createBlock(img, srcSet, text, sizes, path, key) {
 export default function Carousel() {
     let parent = useRef(null);
     let child = useRef(null);
-    let card = useRef(null);
 
     function arrowRight(e) {
         let childPos = child.current.getBoundingClientRect();
-        let parentPos = parent.current.getBoundingClientRect();
         let right = getComputedStyle(child.current);
         let cards = document.querySelectorAll(".card");
         let width = 0;
         for (const card of cards) {
             width += card.offsetWidth;
         }
-        console.log(width - document.body.offsetWidth, parseFloat(right.right));
-            // console.log(parseFloat(width.right));
             if(parseFloat(right.right) < (width - childPos.width)) {
                 child.current.style.left = childPos.left - 200 + "px";
             }
