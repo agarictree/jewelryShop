@@ -946,9 +946,11 @@ table th, table td, table tr {
   display: flex;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .responce {
-    width: 90%;
+    width: 100%;
+    left: 0;
+    box-sizing: border-box;
   }
 }
 
@@ -971,6 +973,7 @@ table th, table td, table tr {
   text-align: right;
   font-weight: 700;
   cursor: pointer;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .shipping_container {
@@ -1229,6 +1232,12 @@ p {
 
 a {
   text-decoration-line: none;
+}
+
+@media screen and (max-width: 1000px) {
+  label {
+    font-size: 0.9rem;
+  }
 }
 
 h1 {
