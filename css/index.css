@@ -700,7 +700,7 @@ footer .footer_container .footer_icons a img {
 .shop_item_page .item_page_gallery .item_page_gallery_links {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
 }
 

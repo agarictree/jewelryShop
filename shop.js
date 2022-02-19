@@ -66,7 +66,7 @@ export default function Shop(props) {
             
             <aside>
             <h4 ref={sortHead} className="shop_container-sort" onClick={sortHandler}>Сортировать по:</h4>
-                <form action="/" ref={sort}>
+                <form action="/" ref={sort} className="closedMenu">
                 
                 <h4>Тип украшения</h4>
 

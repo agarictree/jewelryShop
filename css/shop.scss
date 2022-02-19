@@ -183,7 +183,7 @@
         .item_page_gallery_links {
             display: flex;
             flex-flow: row nowrap;
-            justify-content: space-between;
+            justify-content: space-around;
             width: 100%;
             img {
                 cursor: pointer;
