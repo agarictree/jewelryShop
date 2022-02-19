@@ -100,8 +100,10 @@
     transition: 500ms ease;
     border-radius: 7px;
     display: flex;
-    @media screen and (max-width: 500px) {
-        width: 90%;
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        left: 0;
+        box-sizing: border-box;
     }
     p {
         text-align: center;
@@ -120,4 +122,5 @@
     text-align: right;
     font-weight: 700;
     cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
 }

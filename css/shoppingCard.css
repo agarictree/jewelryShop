@@ -118,9 +118,11 @@
   display: flex;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .responce {
-    width: 90%;
+    width: 100%;
+    left: 0;
+    box-sizing: border-box;
   }
 }
 
@@ -143,4 +145,5 @@
   text-align: right;
   font-weight: 700;
   cursor: pointer;
+  font-family: 'Open Sans Condensed', sans-serif;
 }

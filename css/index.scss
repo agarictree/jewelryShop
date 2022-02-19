@@ -47,6 +47,11 @@ p {
 a {
     text-decoration-line: none;
 }
+label {
+    @media screen and (max-width: 1000px) {
+        font-size: 0.9rem;
+    }  
+}
 h1 {
     color: #EBEBEB;
     text-align: center;
