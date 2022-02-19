@@ -34,11 +34,16 @@ export default function Header(props) {
     }
     function onCloseHandler(e) {
         menu.current.classList.toggle("isOpen");
-        close.current.classList.toggle("change_theme-close--open");
+        if(close.current.classList.contains("change_theme-close--open")) {
+            close.current.classList.remove("change_theme-close--open");
+        } else {
+            close.current.classList.add("change_theme-close--open");
+        }
     }
 
     function closeMenu() {
         menu.current.classList.remove("isOpen");
+        close.current.classList.remove("change_theme-close--open");
     }
     return (
         <header>
